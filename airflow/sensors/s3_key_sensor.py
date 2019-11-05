@@ -17,9 +17,6 @@
 # specific language governing permissions and limitations
 # under the License.
 
-
-from urllib.parse import urlparse
-
 from airflow.exceptions import AirflowException
 from airflow.sensors.base_sensor_operator import BaseSensorOperator
 from airflow.utils.decorators import apply_defaults
@@ -65,6 +62,12 @@ class S3KeySensor(BaseSensorOperator):
                  *args,
                  **kwargs):
         super(S3KeySensor, self).__init__(*args, **kwargs)
+        # Python 3
+        try:
+            from urllib.parse import urlparse
+        # Python 2
+        except ImportError:
+            from urlparse import urlparse
         # Parse
         if bucket_name is None:
             parsed_url = urlparse(bucket_key)

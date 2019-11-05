@@ -19,21 +19,26 @@
 
 import json
 from builtins import bytes
-from urllib.parse import urlparse, unquote, parse_qsl
 
-from sqlalchemy import Column, Integer, String, Boolean
+from sqlalchemy import Boolean, Column, Integer, String
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.orm import synonym
 
 from airflow import LoggingMixin
 from airflow.exceptions import AirflowException
-from airflow.models.base import Base, ID_LEN
+from airflow.models.base import ID_LEN, Base
 from airflow.models.crypto import get_fernet
 
 
 # Python automatically converts all letters to lowercase in hostname
 # See: https://issues.apache.org/jira/browse/AIRFLOW-3615
 def parse_netloc_to_hostname(uri_parts):
+    # Python 3
+    try:
+        from urllib.parse import unquote
+    # Python 2
+    except ImportError:
+        from urllib import unquote
     hostname = unquote(uri_parts.hostname or '')
     if '/' in hostname:
         hostname = uri_parts.netloc
@@ -127,6 +132,13 @@ class Connection(Base, LoggingMixin):
             self.extra = extra
 
     def parse_from_uri(self, uri):
+        # Python 3
+        try:
+            from urllib.parse import urlparse, parse_qsl, unquote
+        # Python 2
+        except ImportError:
+            from urlparse import urlparse, parse_qsl
+            from urllib import unquote
         uri_parts = urlparse(uri)
         conn_type = uri_parts.scheme
         if conn_type == 'postgresql':

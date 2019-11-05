@@ -17,11 +17,11 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from airflow.models import BaseOperator
-from airflow.hooks.S3_hook import S3Hook
-from airflow.contrib.hooks.ssh_hook import SSHHook
 from tempfile import NamedTemporaryFile
-from urllib.parse import urlparse
+
+from airflow.contrib.hooks.ssh_hook import SSHHook
+from airflow.hooks.S3_hook import S3Hook
+from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
 
 
@@ -69,6 +69,12 @@ class SFTPToS3Operator(BaseOperator):
     def get_s3_key(s3_key):
         """This parses the correct format for S3 keys
             regardless of how the S3 url is passed."""
+        # Python 3
+        try:
+            from urllib.parse import urlparse
+        # Python 2
+        except ImportError:
+            from urlparse import urlparse
 
         parsed_s3_key = urlparse(s3_key)
         return parsed_s3_key.path.lstrip('/')

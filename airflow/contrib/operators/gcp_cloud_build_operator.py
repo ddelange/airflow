@@ -17,9 +17,8 @@
 # specific language governing permissions and limitations
 # under the License.
 """Operators that integrat with Google Cloud Build service."""
-from copy import deepcopy
 import re
-from urllib.parse import urlparse, unquote
+from copy import deepcopy
 
 import six
 
@@ -108,6 +107,13 @@ class BuildProcessor:
             https://source.developers.google.com/p/airflow-project/r/airflow-repo#branch-name
 
         """
+        # Python 3
+        try:
+            from urllib.parse import urlparse
+        # Python 2
+        except ImportError:
+            from urlparse import urlparse
+            from urllib import unquote
         url_parts = urlparse(source)
 
         match = REGEX_REPO_PATH.search(url_parts.path)
@@ -140,6 +146,12 @@ class BuildProcessor:
             gs://bucket-name/object-name.tar.gz
 
         """
+        # Python 3
+        try:
+            from urllib.parse import urlparse
+        # Python 2
+        except ImportError:
+            from urlparse import urlparse
         url_parts = urlparse(storage_url)
 
         if url_parts.scheme != "gs" or not url_parts.hostname or not url_parts.path or url_parts.path == "/":
