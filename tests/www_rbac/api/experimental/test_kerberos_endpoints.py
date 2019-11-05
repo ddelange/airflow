@@ -18,15 +18,15 @@
 # under the License.
 
 import json
-import mock
 import os
 import socket
 import unittest
-
 from datetime import datetime
 
-from airflow.configuration import conf
+import mock
+
 from airflow.api.auth.backend.kerberos_auth import CLIENT_AUTH
+from airflow.configuration import conf
 from airflow.www_rbac import app as application
 from tests.test_utils.config import conf_vars
 

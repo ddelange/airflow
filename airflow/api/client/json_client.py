@@ -18,8 +18,8 @@
 # under the License.
 """JSON API Client"""
 
-from future.moves.urllib.parse import urljoin
 import requests
+from future.moves.urllib.parse import urljoin
 
 from airflow.api.client import api_client
 

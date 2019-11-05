@@ -18,11 +18,10 @@
 # under the License.
 #
 
-import unittest
 import json
+import unittest
 
-from mock import Mock
-from mock import patch
+from mock import Mock, patch
 
 from airflow.hooks.jdbc_hook import JdbcHook
 from airflow.models import Connection

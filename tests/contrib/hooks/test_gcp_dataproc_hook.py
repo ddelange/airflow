@@ -19,12 +19,12 @@
 #
 
 import unittest
+
 from mock import MagicMock
 
-from airflow.contrib.hooks.gcp_dataproc_hook import _DataProcJob
-from airflow.contrib.hooks.gcp_dataproc_hook import DataProcHook
-from tests.contrib.utils.base_gcp_mock import GCP_PROJECT_ID_HOOK_UNIT_TEST
+from airflow.contrib.hooks.gcp_dataproc_hook import DataProcHook, _DataProcJob
 from tests.compat import mock
+from tests.contrib.utils.base_gcp_mock import GCP_PROJECT_ID_HOOK_UNIT_TEST
 
 JOB = 'test-job'
 GCP_REGION = 'global'

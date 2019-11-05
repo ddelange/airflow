@@ -38,10 +38,10 @@ from werkzeug.test import Client
 from werkzeug.wrappers import BaseResponse
 
 from airflow import models, settings
-from airflow.configuration import conf
 from airflow.config_templates.airflow_local_settings import DEFAULT_LOGGING_CONFIG
+from airflow.configuration import conf
 from airflow.jobs import BaseJob
-from airflow.models import BaseOperator, Connection, DAG, DagRun, TaskInstance
+from airflow.models import DAG, BaseOperator, Connection, DagRun, TaskInstance
 from airflow.models.baseoperator import BaseOperatorLink
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.settings import Session

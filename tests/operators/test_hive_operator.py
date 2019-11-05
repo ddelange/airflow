@@ -22,13 +22,13 @@ from __future__ import print_function
 import datetime
 import os
 import unittest
-from tests.compat import mock
+
 import nose
 
+import airflow.operators.hive_operator
 from airflow import DAG
 from airflow.configuration import conf
-import airflow.operators.hive_operator
-
+from tests.compat import mock
 
 DEFAULT_DATE = datetime.datetime(2015, 1, 1)
 DEFAULT_DATE_ISO = DEFAULT_DATE.isoformat()

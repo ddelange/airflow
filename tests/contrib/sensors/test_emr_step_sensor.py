@@ -19,8 +19,9 @@
 
 import unittest
 from datetime import datetime
-from mock import MagicMock, patch
+
 from dateutil.tz import tzlocal
+from mock import MagicMock, patch
 
 from airflow import AirflowException
 from airflow.contrib.sensors.emr_step_sensor import EmrStepSensor

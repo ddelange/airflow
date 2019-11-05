@@ -17,18 +17,14 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import base64
 import mimetypes
 import os
 
 import sendgrid
-from sendgrid.helpers.mail import Attachment, Content, Email, Mail, \
-    Personalization, CustomArg, Category
+from sendgrid.helpers.mail import Attachment, Category, Content, CustomArg, Email, Mail, Personalization
 
 from airflow.utils.email import get_email_address_list
 from airflow.utils.log.logging_mixin import LoggingMixin

@@ -25,6 +25,7 @@ functions in CloudDLPHook
 
 import unittest
 from typing import Any, Dict
+
 from google.cloud.dlp_v2.types import DlpJob
 
 from airflow import AirflowException

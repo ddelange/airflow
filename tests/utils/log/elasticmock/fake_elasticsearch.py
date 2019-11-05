@@ -40,8 +40,8 @@
 # SOFTWARE.
 
 import json
-import six
 
+import six
 from elasticsearch import Elasticsearch
 from elasticsearch.client.utils import query_params
 from elasticsearch.exceptions import NotFoundError

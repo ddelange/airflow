@@ -17,11 +17,12 @@
 # under the License.
 
 import unittest
-from tests.compat import mock
 from datetime import datetime, timedelta
-from airflow import models, DAG
+
+from airflow import DAG, models
 from airflow.contrib.sensors import gcs_sensor
 from airflow.settings import Session
+from tests.compat import mock
 
 TEST_DAG_ID = 'unit_tests'
 DEFAULT_DATE = datetime(2015, 1, 1)

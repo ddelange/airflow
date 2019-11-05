@@ -19,15 +19,15 @@
 
 from __future__ import print_function
 
+import os
+import unittest
+from collections import OrderedDict
+
+import mock
+
 from airflow import DAG, operators
 from airflow.configuration import conf
 from airflow.utils import timezone
-
-from collections import OrderedDict
-
-import os
-import mock
-import unittest
 
 DEFAULT_DATE = timezone.datetime(2015, 1, 1)
 DEFAULT_DATE_ISO = DEFAULT_DATE.isoformat()

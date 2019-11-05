@@ -17,32 +17,30 @@
 # specific language governing permissions and limitations
 # under the License.
 
-import io
 import copy
+import io
+import json
 import logging.config
-import mock
 import os
 import shutil
+import sys
 import tempfile
 import unittest
-import sys
-import json
 
+import mock
 from six.moves.urllib.parse import quote_plus
 from werkzeug.test import Client
 from werkzeug.wrappers import BaseResponse
 
-
 import airflow
 from airflow import models
-from airflow.configuration import conf
 from airflow.config_templates.airflow_local_settings import DEFAULT_LOGGING_CONFIG
+from airflow.configuration import conf
 from airflow.models import DAG, DagRun, TaskInstance
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.settings import Session
 from airflow.utils.timezone import datetime
 from airflow.www import app as application
-
 from tests.test_utils.config import conf_vars
 
 

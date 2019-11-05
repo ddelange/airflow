@@ -20,20 +20,18 @@ import sys
 import unittest
 from multiprocessing import Pool
 
-import mock
-from celery.contrib.testing.worker import start_worker
-
-from airflow.executors import celery_executor
-from airflow.executors.celery_executor import (CeleryExecutor, celery_configuration,
-                                               send_task_to_executor, execute_command)
-from airflow.executors.celery_executor import app
-from celery import states as celery_states
-from airflow.utils.state import State
-
-from airflow.configuration import conf
-
 # leave this it is used by the test worker
 import celery.contrib.testing.tasks  # noqa: F401 pylint: disable=ungrouped-imports
+import mock
+from celery import states as celery_states
+from celery.contrib.testing.worker import start_worker
+
+from airflow.configuration import conf
+from airflow.executors import celery_executor
+from airflow.executors.celery_executor import (
+    CeleryExecutor, app, celery_configuration, execute_command, send_task_to_executor,
+)
+from airflow.utils.state import State
 
 
 class CeleryExecutorTest(unittest.TestCase):

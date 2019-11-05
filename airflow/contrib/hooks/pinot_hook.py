@@ -18,7 +18,6 @@
 # under the License.
 
 import six
-
 from pinotdb import connect
 
 from airflow.hooks.dbapi_hook import DbApiHook

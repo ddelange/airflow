@@ -17,15 +17,13 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import absolute_import, division, print_function, unicode_literals
+
+from flask_admin.form import DateTimePickerWidget
+from flask_wtf import FlaskForm
+from wtforms import DateTimeField, SelectField
 
 from airflow.utils import timezone
-from flask_admin.form import DateTimePickerWidget
-from wtforms import DateTimeField, SelectField
-from flask_wtf import FlaskForm
 
 
 class DateTimeForm(FlaskForm):

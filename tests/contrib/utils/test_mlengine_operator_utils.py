@@ -15,20 +15,17 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
+from __future__ import absolute_import, division, print_function
 
 import datetime
 import unittest
+
+from mock import ANY, patch
 
 from airflow import DAG
 from airflow.contrib.utils import mlengine_operator_utils
 from airflow.exceptions import AirflowException
 from airflow.version import version
-
-from mock import ANY
-from mock import patch
 
 DEFAULT_DATE = datetime.datetime(2017, 6, 6)
 TEST_VERSION = 'v{}'.format(version.replace('.', '-').replace('+', '-'))

@@ -18,8 +18,8 @@
 # under the License.
 
 import unittest
-
 from ftplib import error_perm
+
 from mock import MagicMock
 
 from airflow.contrib.hooks.ftp_hook import FTPHook

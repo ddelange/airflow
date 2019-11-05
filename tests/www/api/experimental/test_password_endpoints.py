@@ -19,11 +19,10 @@
 
 import unittest
 
-
 from airflow import models
-from airflow.www import app as application
-from airflow.settings import Session
 from airflow.contrib.auth.backends.password_auth import PasswordUser
+from airflow.settings import Session
+from airflow.www import app as application
 from tests.test_utils.config import conf_vars
 
 

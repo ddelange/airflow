@@ -30,18 +30,19 @@ https://airflow.apache.org/concepts.html#variables
 
 import os
 
+from six.moves.urllib.parse import urlsplit
+
 import airflow
 from airflow import models
-from airflow.contrib.operators.gcp_sql_operator import CloudSqlInstanceCreateOperator, \
-    CloudSqlInstancePatchOperator, CloudSqlInstanceDeleteOperator, \
-    CloudSqlInstanceDatabaseCreateOperator, CloudSqlInstanceDatabasePatchOperator, \
-    CloudSqlInstanceDatabaseDeleteOperator, CloudSqlInstanceExportOperator, \
-    CloudSqlInstanceImportOperator
-from airflow.contrib.operators.gcs_acl_operator import \
-    GoogleCloudStorageBucketCreateAclEntryOperator, \
-    GoogleCloudStorageObjectCreateAclEntryOperator
-
-from six.moves.urllib.parse import urlsplit
+from airflow.contrib.operators.gcp_sql_operator import (
+    CloudSqlInstanceCreateOperator, CloudSqlInstanceDatabaseCreateOperator,
+    CloudSqlInstanceDatabaseDeleteOperator, CloudSqlInstanceDatabasePatchOperator,
+    CloudSqlInstanceDeleteOperator, CloudSqlInstanceExportOperator, CloudSqlInstanceImportOperator,
+    CloudSqlInstancePatchOperator,
+)
+from airflow.contrib.operators.gcs_acl_operator import (
+    GoogleCloudStorageBucketCreateAclEntryOperator, GoogleCloudStorageObjectCreateAclEntryOperator,
+)
 
 # [START howto_operator_cloudsql_arguments]
 GCP_PROJECT_ID = os.environ.get('GCP_PROJECT_ID', 'example-project')

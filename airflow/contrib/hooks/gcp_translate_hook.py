@@ -18,6 +18,7 @@
 # under the License.
 
 from google.cloud.translate_v2 import Client
+
 from airflow.contrib.hooks.gcp_api_base_hook import GoogleCloudBaseHook
 
 

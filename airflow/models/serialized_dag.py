@@ -21,12 +21,12 @@
 
 import hashlib
 from datetime import timedelta
-from typing import Any, Optional, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Optional
 
 from sqlalchemy import JSON, Column, Index, Integer, String, and_
 from sqlalchemy.sql import exists
 
-from airflow.models.base import Base, ID_LEN
+from airflow.models.base import ID_LEN, Base
 from airflow.utils import db, timezone
 from airflow.utils.log.logging_mixin import LoggingMixin
 from airflow.utils.sqlalchemy import UtcDateTime

@@ -26,12 +26,9 @@ import six
 from airflow import AirflowException
 from airflow.contrib.hooks.gcp_cloud_build_hook import CloudBuildHook
 from tests.compat import mock
-
 from tests.contrib.utils.base_gcp_mock import (
-    mock_base_gcp_hook_default_project_id,
-    mock_base_gcp_hook_no_default_project_id,
+    mock_base_gcp_hook_default_project_id, mock_base_gcp_hook_no_default_project_id,
 )
-
 
 TEST_CREATE_BODY = {
     "source": {"storageSource": {"bucket": "cloud-build-examples", "object": "node-docker-example.tar.gz"}},

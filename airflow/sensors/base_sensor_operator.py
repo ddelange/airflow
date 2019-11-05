@@ -18,15 +18,16 @@
 # under the License.
 
 
-from time import sleep
 from datetime import timedelta
+from time import sleep
 
-from airflow.exceptions import AirflowException, AirflowSensorTimeout, \
-    AirflowSkipException, AirflowRescheduleException
+from airflow.exceptions import (
+    AirflowException, AirflowRescheduleException, AirflowSensorTimeout, AirflowSkipException,
+)
 from airflow.models import BaseOperator, SkipMixin, TaskReschedule
+from airflow.ti_deps.deps.ready_to_reschedule import ReadyToRescheduleDep
 from airflow.utils import timezone
 from airflow.utils.decorators import apply_defaults
-from airflow.ti_deps.deps.ready_to_reschedule import ReadyToRescheduleDep
 
 
 class BaseSensorOperator(BaseOperator, SkipMixin):

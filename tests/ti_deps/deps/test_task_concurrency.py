@@ -19,6 +19,7 @@
 
 import unittest
 from datetime import datetime
+
 from mock import Mock
 
 from airflow.models import DAG, BaseOperator

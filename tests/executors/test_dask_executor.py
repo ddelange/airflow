@@ -18,14 +18,13 @@
 # under the License.
 
 import unittest
-from tests.compat import mock
+from datetime import timedelta
 
 from airflow.configuration import conf
-from airflow.models import DagBag
 from airflow.jobs import BackfillJob
+from airflow.models import DagBag
 from airflow.utils import timezone
-
-from datetime import timedelta
+from tests.compat import mock
 
 try:
     from airflow.executors.dask_executor import DaskExecutor

@@ -17,15 +17,16 @@
 # specific language governing permissions and limitations
 # under the License.
 import datetime
-
-from tests.compat import mock
 from unittest import TestCase
 
 import pendulum
 
 from airflow import DAG
-from airflow.contrib.sensors.gcs_sensor import GoogleCloudStorageObjectSensor, \
-    GoogleCloudStorageObjectUpdatedSensor, ts_function, GoogleCloudStoragePrefixSensor
+from airflow.contrib.sensors.gcs_sensor import (
+    GoogleCloudStorageObjectSensor, GoogleCloudStorageObjectUpdatedSensor, GoogleCloudStoragePrefixSensor,
+    ts_function,
+)
+from tests.compat import mock
 
 TEST_DAG_ID = 'test-dag_id'
 

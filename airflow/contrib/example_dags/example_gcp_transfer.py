@@ -44,36 +44,16 @@ from typing import Any, Dict
 
 from airflow import models
 from airflow.contrib.hooks.gcp_transfer_hook import (
-    GcpTransferOperationStatus,
-    GcpTransferJobsStatus,
-    TRANSFER_OPTIONS,
-    PROJECT_ID,
-    BUCKET_NAME,
-    GCS_DATA_SINK,
-    STATUS,
-    DESCRIPTION,
-    GCS_DATA_SOURCE,
-    START_TIME_OF_DAY,
-    SCHEDULE_END_DATE,
-    SCHEDULE_START_DATE,
-    SCHEDULE,
-    AWS_S3_DATA_SOURCE,
-    TRANSFER_SPEC,
-    FILTER_PROJECT_ID,
-    FILTER_JOB_NAMES,
-    TRANSFER_JOB,
-    TRANSFER_JOB_FIELD_MASK,
-    ALREADY_EXISTING_IN_SINK,
+    ALREADY_EXISTING_IN_SINK, AWS_S3_DATA_SOURCE, BUCKET_NAME, DESCRIPTION, FILTER_JOB_NAMES,
+    FILTER_PROJECT_ID, GCS_DATA_SINK, GCS_DATA_SOURCE, PROJECT_ID, SCHEDULE, SCHEDULE_END_DATE,
+    SCHEDULE_START_DATE, START_TIME_OF_DAY, STATUS, TRANSFER_JOB, TRANSFER_JOB_FIELD_MASK, TRANSFER_OPTIONS,
+    TRANSFER_SPEC, GcpTransferJobsStatus, GcpTransferOperationStatus,
 )
 from airflow.contrib.operators.gcp_transfer_operator import (
-    GcpTransferServiceJobCreateOperator,
-    GcpTransferServiceJobDeleteOperator,
-    GcpTransferServiceJobUpdateOperator,
-    GcpTransferServiceOperationsListOperator,
-    GcpTransferServiceOperationGetOperator,
-    GcpTransferServiceOperationPauseOperator,
-    GcpTransferServiceOperationResumeOperator,
-    GcpTransferServiceOperationCancelOperator,
+    GcpTransferServiceJobCreateOperator, GcpTransferServiceJobDeleteOperator,
+    GcpTransferServiceJobUpdateOperator, GcpTransferServiceOperationCancelOperator,
+    GcpTransferServiceOperationGetOperator, GcpTransferServiceOperationPauseOperator,
+    GcpTransferServiceOperationResumeOperator, GcpTransferServiceOperationsListOperator,
 )
 from airflow.contrib.sensors.gcp_transfer_sensor import GCPTransferServiceWaitForJobStatusSensor
 from airflow.utils.dates import days_ago

@@ -17,10 +17,11 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from airflow.models.base import Base
-from sqlalchemy import Column, String, Integer, ForeignKey, Text
-from airflow.utils.sqlalchemy import UtcDateTime
+from sqlalchemy import Column, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import relationship
+
+from airflow.models.base import Base
+from airflow.utils.sqlalchemy import UtcDateTime
 
 
 class KnownEventType(Base):

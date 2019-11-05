@@ -17,9 +17,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from sqlalchemy import Column, String, Integer, Boolean
+from sqlalchemy import Boolean, Column, Integer, String
 
-from airflow.models.base import Base, ID_LEN
+from airflow.models.base import ID_LEN, Base
 
 
 class User(Base):

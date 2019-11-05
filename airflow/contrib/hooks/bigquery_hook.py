@@ -23,25 +23,24 @@ implementation for BigQuery.
 """
 
 import time
-import six
 from builtins import range
 from copy import deepcopy
-from six import iteritems
 
+import six
+from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
+from pandas_gbq import read_gbq
+from pandas_gbq.gbq import (
+    GbqConnector, _check_google_client_version as gbq_check_google_client_version,
+    _test_google_api_imports as gbq_test_google_api_imports,
+)
 from past.builtins import basestring
+from six import iteritems
 
 from airflow import AirflowException
 from airflow.contrib.hooks.gcp_api_base_hook import GoogleCloudBaseHook
 from airflow.hooks.dbapi_hook import DbApiHook
 from airflow.utils.log.logging_mixin import LoggingMixin
-from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
-from pandas_gbq.gbq import \
-    _check_google_client_version as gbq_check_google_client_version
-from pandas_gbq import read_gbq
-from pandas_gbq.gbq import \
-    _test_google_api_imports as gbq_test_google_api_imports
-from pandas_gbq.gbq import GbqConnector
 
 
 class BigQueryHook(GoogleCloudBaseHook, DbApiHook):

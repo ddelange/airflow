@@ -20,8 +20,7 @@
 
 import unittest
 
-from mock import Mock
-from mock import patch
+from mock import Mock, patch
 
 from airflow.contrib.hooks.jira_hook import JiraHook
 from airflow.models import Connection

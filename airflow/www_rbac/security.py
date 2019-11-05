@@ -24,9 +24,9 @@ from flask_appbuilder.security.sqla.manager import SecurityManager
 from sqlalchemy import or_
 
 from airflow import models
-from airflow.www_rbac.app import appbuilder
 from airflow.utils.db import provide_session
 from airflow.utils.log.logging_mixin import LoggingMixin
+from airflow.www_rbac.app import appbuilder
 
 ###########################################################################
 #                               VIEW MENUS

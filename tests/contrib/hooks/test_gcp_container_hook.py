@@ -23,7 +23,6 @@ from airflow import AirflowException
 from airflow.contrib.hooks.gcp_container_hook import GKEClusterHook
 from tests.compat import mock
 
-
 TASK_ID = 'test-gke-cluster-operator'
 CLUSTER_NAME = 'test-cluster'
 TEST_GCP_PROJECT_ID = 'test-project'

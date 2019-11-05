@@ -20,7 +20,7 @@
 import imaplib
 import unittest
 
-from mock import Mock, patch, mock_open
+from mock import Mock, mock_open, patch
 
 from airflow import AirflowException
 from airflow.contrib.hooks.imap_hook import ImapHook

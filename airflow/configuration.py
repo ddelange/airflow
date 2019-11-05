@@ -17,25 +17,22 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import absolute_import, division, print_function, unicode_literals
 
-from builtins import str
-from collections import OrderedDict
 import copy
 import errno
-from future import standard_library
 import os
 import shlex
-import six
-from six import iteritems
 import subprocess
 import sys
 import warnings
+from builtins import str
+from collections import OrderedDict
 
-from backports.configparser import ConfigParser, _UNSET, NoOptionError, NoSectionError
+import six
+from backports.configparser import _UNSET, ConfigParser, NoOptionError, NoSectionError
+from future import standard_library
+from six import iteritems
 from zope.deprecation import deprecated
 
 from airflow.exceptions import AirflowConfigException

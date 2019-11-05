@@ -42,27 +42,18 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """Kerberos authentication module"""
 
-from future.standard_library import install_aliases
-
 import os
-
 from functools import wraps
 from socket import getfqdn
 
-from flask import Response
-# noinspection PyProtectedMember
-from flask import _request_ctx_stack as stack  # type: ignore
-from flask import make_response
-from flask import request
-from flask import g
-
 import kerberos
-
+# noinspection PyProtectedMember
+from flask import Response, _request_ctx_stack as stack, g, make_response, request  # type: ignore
+from future.standard_library import install_aliases
 from requests_kerberos import HTTPKerberosAuth
 
 from airflow.configuration import conf
 from airflow.utils.log.logging_mixin import LoggingMixin
-
 
 install_aliases()
 # pylint: disable=c-extension-no-member

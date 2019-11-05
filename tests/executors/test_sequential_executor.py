@@ -18,9 +18,9 @@
 # under the License.
 
 import unittest
-from tests.compat import mock
 
 from airflow.executors.sequential_executor import SequentialExecutor
+from tests.compat import mock
 
 
 class SequentialExecutorTest(unittest.TestCase):

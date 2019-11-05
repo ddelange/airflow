@@ -24,8 +24,8 @@ from copy import deepcopy
 import six
 from googleapiclient.discovery import build
 
-from airflow.exceptions import AirflowException
 from airflow.contrib.hooks.gcp_api_base_hook import GoogleCloudBaseHook
+from airflow.exceptions import AirflowException
 
 # Time to sleep between active checks of the operation results
 TIME_TO_SLEEP_IN_SECONDS = 10

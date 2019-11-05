@@ -17,20 +17,19 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from future import standard_library
-
 from builtins import str
 from queue import Queue
 
 import mesos.interface
-from mesos.interface import mesos_pb2
 import mesos.native
+from future import standard_library
+from mesos.interface import mesos_pb2
 
 from airflow.configuration import conf
+from airflow.exceptions import AirflowException
 from airflow.executors.base_executor import BaseExecutor
 from airflow.settings import Session
 from airflow.utils.state import State
-from airflow.exceptions import AirflowException
 
 standard_library.install_aliases()
 DEFAULT_FRAMEWORK_NAME = 'Airflow'

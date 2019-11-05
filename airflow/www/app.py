@@ -25,20 +25,17 @@ from flask_admin import Admin, base
 from flask_caching import Cache
 from flask_wtf.csrf import CSRFProtect
 from six.moves.urllib.parse import urlparse
-from werkzeug.middleware.proxy_fix import ProxyFix
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 import airflow
-from airflow import models, LoggingMixin
+from airflow import LoggingMixin, jobs, models, settings
 from airflow.configuration import conf
+from airflow.logging_config import configure_logging
 from airflow.models.connection import Connection
 from airflow.settings import Session
-
-from airflow.www.blueprints import routes
-from airflow.logging_config import configure_logging
-from airflow import jobs
-from airflow import settings
 from airflow.utils.net import get_hostname
+from airflow.www.blueprints import routes
 
 csrf = CSRFProtect()
 

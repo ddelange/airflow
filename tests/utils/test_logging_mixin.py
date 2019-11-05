@@ -17,12 +17,13 @@
 # specific language governing permissions and limitations
 # under the License.
 
-import mock
 import unittest
 import warnings
 
+import mock
+
 from airflow.operators.bash_operator import BashOperator
-from airflow.utils.log.logging_mixin import set_context, StreamLogWriter
+from airflow.utils.log.logging_mixin import StreamLogWriter, set_context
 from tests.test_utils.reset_warning_registry import reset_warning_registry
 
 

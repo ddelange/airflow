@@ -17,12 +17,12 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from sqlalchemy import Column, String, Integer, Boolean, ForeignKey, Text
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import relationship
 
-from airflow.models.base import Base, ID_LEN
-from airflow.utils.sqlalchemy import UtcDateTime
+from airflow.models.base import ID_LEN, Base
 from airflow.utils import timezone
+from airflow.utils.sqlalchemy import UtcDateTime
 
 
 class Chart(Base):

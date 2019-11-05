@@ -17,17 +17,15 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import absolute_import, division, print_function, unicode_literals
+
+from datetime import datetime, timedelta
+
+import six
+from croniter import croniter
+from dateutil.relativedelta import relativedelta  # noqa: F401 for doctest
 
 from airflow.utils import timezone
-from datetime import datetime, timedelta
-from dateutil.relativedelta import relativedelta  # noqa: F401 for doctest
-import six
-
-from croniter import croniter
 
 cron_presets = {
     '@hourly': '0 * * * *',

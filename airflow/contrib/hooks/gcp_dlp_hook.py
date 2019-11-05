@@ -24,6 +24,7 @@ which allows you to connect to GCP Cloud DLP service.
 
 import re
 import time
+
 from google.cloud.dlp_v2 import DlpServiceClient
 from google.cloud.dlp_v2.types import DlpJob
 

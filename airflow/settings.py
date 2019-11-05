@@ -17,23 +17,20 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import atexit
 import logging
 import os
-import pendulum
 import sys
 from typing import Any
 
+import pendulum
 from sqlalchemy import create_engine, exc
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.pool import NullPool
 
-from airflow.configuration import conf, AIRFLOW_HOME, WEBSERVER_CONFIG  # NOQA F401
+from airflow.configuration import AIRFLOW_HOME, WEBSERVER_CONFIG, conf  # NOQA F401
 from airflow.contrib.kubernetes.pod import Pod
 from airflow.logging_config import configure_logging
 from airflow.utils.sqlalchemy import setup_event_handlers

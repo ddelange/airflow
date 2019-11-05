@@ -23,12 +23,12 @@ from typing import Any
 
 import six
 from flask import Flask
-from flask_appbuilder import AppBuilder, SQLA
+from flask_appbuilder import SQLA, AppBuilder
 from flask_caching import Cache
 from flask_wtf.csrf import CSRFProtect
 from six.moves.urllib.parse import urlparse
-from werkzeug.middleware.proxy_fix import ProxyFix
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 from airflow import settings
 from airflow.configuration import conf

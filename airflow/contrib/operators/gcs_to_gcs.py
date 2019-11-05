@@ -18,9 +18,9 @@
 # under the License.
 
 from airflow.contrib.hooks.gcs_hook import GoogleCloudStorageHook
+from airflow.exceptions import AirflowException
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
-from airflow.exceptions import AirflowException
 
 WILDCARD = '*'
 

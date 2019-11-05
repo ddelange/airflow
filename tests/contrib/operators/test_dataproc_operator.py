@@ -21,35 +21,26 @@
 
 import datetime
 import re
+import time
 import unittest
-
+from copy import deepcopy
 from typing import Dict
 
-import time
-
-from airflow.contrib.hooks.gcp_dataproc_hook import _DataProcJobBuilder
-from airflow.models.taskinstance import TaskInstance
+from mock import MagicMock, Mock, patch
 
 from airflow import DAG, AirflowException
-from airflow.contrib.operators.dataproc_operator import \
-    DataprocClusterCreateOperator, \
-    DataprocClusterDeleteOperator, \
-    DataProcHadoopOperator, \
-    DataProcHiveOperator, \
-    DataProcPigOperator, \
-    DataProcPySparkOperator, \
-    DataProcSparkOperator, \
-    DataprocWorkflowTemplateInstantiateInlineOperator, \
-    DataprocWorkflowTemplateInstantiateOperator, \
-    DataprocClusterScaleOperator, DataProcJobBaseOperator
+from airflow.contrib.hooks.gcp_dataproc_hook import _DataProcJobBuilder
+from airflow.contrib.operators.dataproc_operator import (
+    DataprocClusterCreateOperator, DataprocClusterDeleteOperator, DataprocClusterScaleOperator,
+    DataProcHadoopOperator, DataProcHiveOperator, DataProcJobBaseOperator, DataProcPigOperator,
+    DataProcPySparkOperator, DataProcSparkOperator, DataprocWorkflowTemplateInstantiateInlineOperator,
+    DataprocWorkflowTemplateInstantiateOperator,
+)
 from airflow.exceptions import AirflowTaskTimeout
+from airflow.models.taskinstance import TaskInstance
 from airflow.utils.timezone import make_aware
 from airflow.version import version
-from tests.compat import mock, PropertyMock
-
-from copy import deepcopy
-
-from mock import MagicMock, Mock, patch
+from tests.compat import PropertyMock, mock
 
 DAG_ID = 'test_dag'
 TASK_ID = 'test-dataproc-operator'

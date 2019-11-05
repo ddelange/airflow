@@ -20,8 +20,8 @@
 This module contains Google Cloud Vision operators.
 """
 
-from google.protobuf.json_format import MessageToDict
 from google.cloud.videointelligence_v1 import enums
+from google.protobuf.json_format import MessageToDict
 
 from airflow.contrib.hooks.gcp_video_intelligence_hook import CloudVideoIntelligenceHook
 from airflow.models import BaseOperator

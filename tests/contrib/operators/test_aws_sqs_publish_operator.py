@@ -19,12 +19,14 @@
 
 
 import unittest
-from airflow import DAG
-from airflow.contrib.operators.aws_sqs_publish_operator import SQSPublishOperator
-from airflow.utils import timezone
+
 from mock import MagicMock
 from moto import mock_sqs
+
+from airflow import DAG
 from airflow.contrib.hooks.aws_sqs_hook import SQSHook
+from airflow.contrib.operators.aws_sqs_publish_operator import SQSPublishOperator
+from airflow.utils import timezone
 
 DEFAULT_DATE = timezone.datetime(2019, 1, 1)
 

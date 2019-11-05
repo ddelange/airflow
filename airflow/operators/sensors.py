@@ -28,16 +28,12 @@
 # ------------------------------------------------------------------------
 
 
-from airflow.sensors.base_sensor_operator import BaseSensorOperator as \
-    BaseSensorOperatorImp
-from airflow.sensors.external_task_sensor import ExternalTaskSensor as \
-    ExternalTaskSensorImp
+from airflow.sensors.base_sensor_operator import BaseSensorOperator as BaseSensorOperatorImp
+from airflow.sensors.external_task_sensor import ExternalTaskSensor as ExternalTaskSensorImp
 from airflow.sensors.hdfs_sensor import HdfsSensor as HdfsSensorImp
-from airflow.sensors.hive_partition_sensor import HivePartitionSensor as \
-    HivePartitionSensorImp
+from airflow.sensors.hive_partition_sensor import HivePartitionSensor as HivePartitionSensorImp
 from airflow.sensors.http_sensor import HttpSensor as HttpSensorImp
-from airflow.sensors.metastore_partition_sensor import MetastorePartitionSensor as \
-    MetastorePartitionSensorImp
+from airflow.sensors.metastore_partition_sensor import MetastorePartitionSensor as MetastorePartitionSensorImp
 from airflow.sensors.s3_key_sensor import S3KeySensor as S3KeySensorImp
 from airflow.sensors.s3_prefix_sensor import S3PrefixSensor as S3PrefixSensorImp
 from airflow.sensors.sql_sensor import SqlSensor as SqlSensorImp

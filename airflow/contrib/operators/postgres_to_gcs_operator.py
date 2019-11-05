@@ -21,14 +21,13 @@ PostgreSQL to GCS operator.
 """
 
 import datetime
-from decimal import Decimal
-import time
-
 import sys
+import time
+from decimal import Decimal
 
+from airflow.contrib.operators.sql_to_gcs import BaseSQLToGoogleCloudStorageOperator
 from airflow.hooks.postgres_hook import PostgresHook
 from airflow.utils.decorators import apply_defaults
-from airflow.contrib.operators.sql_to_gcs import BaseSQLToGoogleCloudStorageOperator
 
 PY3 = sys.version_info[0] == 3
 

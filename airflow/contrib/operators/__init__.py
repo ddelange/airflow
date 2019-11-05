@@ -23,8 +23,8 @@
 # directly: from airflow.contrib.operators.operator_module import Operator
 
 
-import sys
 import os as _os
+import sys
 
 # ------------------------------------------------------------------------
 #

@@ -18,8 +18,9 @@
 # under the License.
 #
 
-import mock
 import unittest
+
+import mock
 
 from airflow.hooks.dbapi_hook import DbApiHook
 

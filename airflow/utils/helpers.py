@@ -17,29 +17,24 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import errno
 import imp
-import sys
-import warnings
-
-import psutil
-
-from builtins import input
-from past.builtins import basestring
-from datetime import datetime
-from functools import reduce
-from collections import Iterable
 import os
 import re
 import signal
 import subprocess
+import sys
+import warnings
+from builtins import input
+from collections import Iterable
+from datetime import datetime
+from functools import reduce
 
+import psutil
 from jinja2 import Template
+from past.builtins import basestring
 
 from airflow.configuration import conf
 from airflow.exceptions import AirflowException

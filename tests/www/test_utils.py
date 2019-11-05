@@ -19,17 +19,17 @@
 
 import functools
 
-from bs4 import BeautifulSoup
 import mock
 import six
-from six.moves.urllib.parse import parse_qs, quote_plus
+from bs4 import BeautifulSoup
 from parameterized import parameterized
+from six.moves.urllib.parse import parse_qs, quote_plus
 
-from airflow.models import DagRun, Log, DagBag
+from airflow.models import DagBag, DagRun, Log
 from airflow.settings import Session
-from airflow.utils.state import State
 from airflow.utils import dates, timezone
-from airflow.www import utils, app as application
+from airflow.utils.state import State
+from airflow.www import app as application, utils
 from tests.test_utils.config import conf_vars
 
 if six.PY2:

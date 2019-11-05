@@ -17,14 +17,13 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-import mock
 import unittest
 
-from airflow import AirflowException
+import mock
 
+from airflow import AirflowException
 from airflow.contrib.hooks.segment_hook import SegmentHook
-from airflow.contrib.operators.segment_track_event_operator \
-    import SegmentTrackEventOperator
+from airflow.contrib.operators.segment_track_event_operator import SegmentTrackEventOperator
 
 TEST_CONN_ID = 'test_segment'
 WRITE_KEY = 'foo'

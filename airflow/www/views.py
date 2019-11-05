@@ -34,58 +34,51 @@ from datetime import timedelta
 from functools import wraps
 from textwrap import dedent
 
-from six.moves.urllib.parse import quote
-
+import lazy_object_proxy
 import markdown
 import pendulum
+import six
 import sqlalchemy as sqla
 from flask import (
-    abort, jsonify, redirect, url_for, request, Markup, Response,
-    current_app, render_template, make_response)
-from flask import flash
-from flask_admin import BaseView, expose, AdminIndexView
+    Markup, Response, abort, current_app, flash, jsonify, make_response, redirect, render_template, request,
+    url_for,
+)
+from flask_admin import AdminIndexView, BaseView, expose
 from flask_admin.actions import action
 from flask_admin.babel import lazy_gettext
 from flask_admin.contrib.sqla import ModelView
 from flask_admin.form.fields import DateTimeField
 from flask_admin.tools import iterdecode
-import lazy_object_proxy
 from jinja2 import escape
 from jinja2.sandbox import ImmutableSandboxedEnvironment
 from past.builtins import basestring
 from pygments import highlight, lexers
 from pygments.formatters import HtmlFormatter
-import six
-from sqlalchemy import or_, desc, and_, union_all
-from wtforms import (
-    Form, SelectField, TextAreaField, PasswordField,
-    StringField, IntegerField, validators)
+from six.moves.urllib.parse import quote
+from sqlalchemy import and_, desc, or_, union_all
+from wtforms import Form, IntegerField, PasswordField, SelectField, StringField, TextAreaField, validators
 
 import airflow
-from airflow import LoggingMixin, configuration
+from airflow import LoggingMixin, configuration, jobs, models, settings
+from airflow._vendor import nvd3
+from airflow.api.common.experimental.mark_tasks import (
+    set_dag_run_state_to_failed, set_dag_run_state_to_running, set_dag_run_state_to_success,
+)
 from airflow.configuration import conf
-from airflow import models
-from airflow import settings
-from airflow import jobs
-from airflow.api.common.experimental.mark_tasks import (set_dag_run_state_to_running,
-                                                        set_dag_run_state_to_success,
-                                                        set_dag_run_state_to_failed)
 from airflow.exceptions import AirflowException
-from airflow.models import BaseOperator, Connection, DagRun, errors, XCom
-from airflow.settings import STORE_SERIALIZED_DAGS
+from airflow.models import BaseOperator, Connection, DagRun, XCom, errors
 from airflow.operators.subdag_operator import SubDagOperator
-from airflow.ti_deps.dep_context import DepContext, SCHEDULER_QUEUED_DEPS
+from airflow.settings import STORE_SERIALIZED_DAGS
+from airflow.ti_deps.dep_context import SCHEDULER_QUEUED_DEPS, DepContext
 from airflow.utils import timezone
-from airflow.utils.dates import infer_time_unit, scale_time_units, parse_execution_date
+from airflow.utils.dates import infer_time_unit, parse_execution_date, scale_time_units
 from airflow.utils.db import create_session, provide_session
 from airflow.utils.helpers import alchemy_to_dict, render_log_filename
 from airflow.utils.net import get_hostname
 from airflow.utils.state import State
 from airflow.utils.timezone import datetime
-from airflow._vendor import nvd3
 from airflow.www import utils as wwwutils
-from airflow.www.forms import (DateTimeForm, DateTimeWithNumRunsForm,
-                               DateTimeWithNumRunsWithDagRunsForm)
+from airflow.www.forms import DateTimeForm, DateTimeWithNumRunsForm, DateTimeWithNumRunsWithDagRunsForm
 from airflow.www.validators import GreaterEqualThan
 
 QUERY_LIMIT = 100000

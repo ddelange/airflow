@@ -19,7 +19,6 @@
 
 import datetime
 import unittest
-from tests.compat import mock
 import uuid
 from collections import namedtuple
 
@@ -29,6 +28,7 @@ from parameterized import parameterized
 from airflow.models import DAG, BaseOperator
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.utils.decorators import apply_defaults
+from tests.compat import mock
 from tests.models import DEFAULT_DATE
 
 

@@ -24,8 +24,8 @@ try:
 except ImportError:
     from funcsigs import signature  # type: ignore
 
-from airflow.serialization.serialization import Serialization  # pylint: disable=cyclic-import
 from airflow.models import BaseOperator
+from airflow.serialization.serialization import Serialization  # pylint: disable=cyclic-import
 
 
 class SerializedBaseOperator(BaseOperator, Serialization):

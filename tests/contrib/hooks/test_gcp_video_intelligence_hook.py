@@ -19,12 +19,11 @@
 #
 import unittest
 
-from airflow.contrib.hooks.gcp_video_intelligence_hook import CloudVideoIntelligenceHook
 from google.cloud.videointelligence_v1 import enums
 
-from tests.contrib.utils.base_gcp_mock import mock_base_gcp_hook_default_project_id
+from airflow.contrib.hooks.gcp_video_intelligence_hook import CloudVideoIntelligenceHook
 from tests.compat import mock
-
+from tests.contrib.utils.base_gcp_mock import mock_base_gcp_hook_default_project_id
 
 INPUT_URI = "gs://bucket-name/input-file"
 OUTPUT_URI = "gs://bucket-name/output-file"

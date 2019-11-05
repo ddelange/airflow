@@ -21,6 +21,7 @@ This module contains a Google Compute Engine Hook.
 """
 
 import time
+
 from googleapiclient.discovery import build
 
 from airflow import AirflowException

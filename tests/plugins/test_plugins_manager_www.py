@@ -17,22 +17,19 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import unittest
-from mock import MagicMock, PropertyMock
 
 from flask.blueprints import Blueprint
 from flask_admin.menu import MenuLink, MenuView
+from mock import MagicMock, PropertyMock
 
+from airflow.executors.base_executor import BaseExecutor
 from airflow.hooks.base_hook import BaseHook
 from airflow.models import BaseOperator
-from airflow.plugins_manager import load_entrypoint_plugins, is_valid_plugin
+from airflow.plugins_manager import is_valid_plugin, load_entrypoint_plugins
 from airflow.sensors.base_sensor_operator import BaseSensorOperator
-from airflow.executors.base_executor import BaseExecutor
 from airflow.www.app import create_app
 from tests.plugins.test_plugin import MockPluginA, MockPluginB, MockPluginC
 

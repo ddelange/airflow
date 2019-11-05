@@ -21,12 +21,14 @@ import datetime
 import time
 import unittest
 import urllib
-from typing import Union, List
+from typing import List, Union
+
 import pendulum
 from freezegun import freeze_time
-from mock import patch, mock_open
-from parameterized import parameterized, param
+from mock import mock_open, patch
+from parameterized import param, parameterized
 from sqlalchemy.orm.session import Session
+
 from airflow import models, settings
 from airflow.configuration import conf
 from airflow.contrib.sensors.python_sensor import PythonSensor

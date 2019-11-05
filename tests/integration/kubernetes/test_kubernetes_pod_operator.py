@@ -20,18 +20,18 @@ import os
 import shutil
 import unittest
 from subprocess import check_call
-from tests.compat import mock
 
 from kubernetes.client.api_client import ApiClient
 from kubernetes.client.rest import ApiException
 
 from airflow import AirflowException
-from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
 from airflow.contrib.kubernetes.pod import Port
 from airflow.contrib.kubernetes.pod_launcher import PodLauncher
 from airflow.contrib.kubernetes.secret import Secret
 from airflow.contrib.kubernetes.volume import Volume
 from airflow.contrib.kubernetes.volume_mount import VolumeMount
+from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
+from tests.compat import mock
 
 try:
     check_call(["/usr/local/bin/kubectl", "get", "pods"])

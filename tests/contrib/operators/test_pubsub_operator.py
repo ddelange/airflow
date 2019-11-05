@@ -19,13 +19,13 @@
 
 from __future__ import unicode_literals
 
-from base64 import b64encode as b64e
 import unittest
+from base64 import b64encode as b64e
 
 from airflow.contrib.operators.pubsub_operator import (
+    PubSubPublishOperator, PubSubSubscriptionCreateOperator, PubSubSubscriptionDeleteOperator,
     PubSubTopicCreateOperator, PubSubTopicDeleteOperator,
-    PubSubSubscriptionCreateOperator, PubSubSubscriptionDeleteOperator,
-    PubSubPublishOperator)
+)
 from tests.compat import mock
 
 TASK_ID = 'test-task-id'

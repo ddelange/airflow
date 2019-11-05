@@ -20,20 +20,18 @@
 import os
 import unittest
 
+import google.auth
 import six
 import tenacity
-from parameterized import parameterized
-from google.api_core.exceptions import RetryError, AlreadyExists
+from google.api_core.exceptions import AlreadyExists, RetryError
 from google.auth.environment_vars import CREDENTIALS
-from google.cloud.exceptions import MovedPermanently, Forbidden
+from google.auth.exceptions import GoogleAuthError
+from google.cloud.exceptions import Forbidden, MovedPermanently
 from googleapiclient.errors import HttpError
+from parameterized import parameterized
 
 from airflow import AirflowException, LoggingMixin
 from airflow.contrib.hooks import gcp_api_base_hook as hook
-
-import google.auth
-from google.auth.exceptions import GoogleAuthError
-
 from airflow.hooks.base_hook import BaseHook
 from tests.compat import mock
 

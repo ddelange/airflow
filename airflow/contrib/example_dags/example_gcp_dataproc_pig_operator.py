@@ -21,12 +21,11 @@ Example Airflow DAG for Google Dataproc PigOperator
 """
 
 import os
+
 import airflow
 from airflow import models
 from airflow.contrib.operators.dataproc_operator import (
-    DataProcPigOperator,
-    DataprocClusterCreateOperator,
-    DataprocClusterDeleteOperator
+    DataprocClusterCreateOperator, DataprocClusterDeleteOperator, DataProcPigOperator,
 )
 
 default_args = {"start_date": airflow.utils.dates.days_ago(1)}

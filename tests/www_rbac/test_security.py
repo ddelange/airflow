@@ -19,20 +19,18 @@
 
 from __future__ import print_function
 
-import unittest
 import logging
-import mock
+import unittest
 
+import mock
 from flask import Flask
-from flask_appbuilder import AppBuilder, SQLA, Model, has_access, expose
+from flask_appbuilder import SQLA, AppBuilder, Model, expose, has_access
 from flask_appbuilder.models.sqla.interface import SQLAInterface
 from flask_appbuilder.security.sqla import models as sqla_models
-from flask_appbuilder.views import ModelView, BaseView
+from flask_appbuilder.views import BaseView, ModelView
+from sqlalchemy import Column, Date, Float, Integer, String
 
-from sqlalchemy import Column, Integer, String, Date, Float
-
-from airflow.www_rbac.security import AirflowSecurityManager, DAG_PERMS
-
+from airflow.www_rbac.security import DAG_PERMS, AirflowSecurityManager
 
 logging.basicConfig(format='%(asctime)s:%(levelname)s:%(name)s:%(message)s')
 logging.getLogger().setLevel(logging.DEBUG)

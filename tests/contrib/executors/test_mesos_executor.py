@@ -18,6 +18,8 @@
 # under the License.
 
 import unittest
+from queue import Queue
+
 from tests.compat import mock
 
 try:
@@ -27,7 +29,6 @@ try:
 except ImportError:
     mock_mesos = None  # type: ignore
 
-from queue import Queue
 
 
 class MesosExecutorTest(unittest.TestCase):

@@ -20,8 +20,7 @@
 import sys
 import unittest
 
-from airflow.contrib.operators.mssql_to_gcs import \
-    MsSqlToGoogleCloudStorageOperator
+from airflow.contrib.operators.mssql_to_gcs import MsSqlToGoogleCloudStorageOperator
 from tests.compat import mock
 
 PY3 = sys.version_info[0] == 3

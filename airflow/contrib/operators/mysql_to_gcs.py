@@ -23,16 +23,14 @@ MySQL to GCS operator.
 import base64
 import calendar
 import sys
-
-
 from datetime import date, datetime, timedelta
 from decimal import Decimal
 
 from MySQLdb.constants import FIELD_TYPE
 
+from airflow.contrib.operators.sql_to_gcs import BaseSQLToGoogleCloudStorageOperator
 from airflow.hooks.mysql_hook import MySqlHook
 from airflow.utils.decorators import apply_defaults
-from airflow.contrib.operators.sql_to_gcs import BaseSQLToGoogleCloudStorageOperator
 
 PY3 = sys.version_info[0] == 3
 

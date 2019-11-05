@@ -18,13 +18,14 @@
 # under the License.
 #
 
-import mock
 import unittest
+
+import mock
 
 from airflow import DAG
 from airflow.contrib.operators.druid_operator import DruidOperator
-from airflow.utils import timezone
 from airflow.models import TaskInstance
+from airflow.utils import timezone
 
 DEFAULT_DATE = timezone.datetime(2017, 1, 1)
 

@@ -18,28 +18,28 @@
 # under the License.
 import contextlib
 import io
-
 import logging
 import os
-from six import StringIO, PY2
+import subprocess
 import sys
-
-from datetime import datetime, timedelta, time
-from mock import patch, Mock, MagicMock
+from argparse import Namespace
+from datetime import datetime, time, timedelta
 from time import sleep
+
 import psutil
 import pytz
-import subprocess
-from argparse import Namespace
-from airflow import settings
+from mock import MagicMock, Mock, patch
+from six import PY2, StringIO
+
 import airflow.bin.cli as cli
-from airflow.bin.cli import get_num_ready_workers_running, run, get_dag
+from airflow import models, settings
+from airflow.bin.cli import get_dag, get_num_ready_workers_running, run
 from airflow.models import TaskInstance
+from airflow.settings import Session
 from airflow.utils import timezone
 from airflow.utils.state import State
-from airflow.settings import Session
-from airflow import models
 from tests.compat import mock
+
 if PY2:
     # Need `assertWarns` back-ported from unittest2
     import unittest2 as unittest

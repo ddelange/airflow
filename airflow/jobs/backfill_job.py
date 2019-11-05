@@ -17,10 +17,7 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import time
 from collections import OrderedDict
@@ -29,18 +26,15 @@ from sqlalchemy.orm.session import make_transient
 
 from airflow import executors, models
 from airflow.exceptions import (
-    AirflowException,
-    DagConcurrencyLimitReached,
-    NoAvailablePoolSlot,
-    PoolNotFound,
+    AirflowException, DagConcurrencyLimitReached, NoAvailablePoolSlot, PoolNotFound,
     TaskConcurrencyLimitReached,
 )
+from airflow.jobs.base_job import BaseJob
 from airflow.models import DAG, DagPickle, DagRun
-from airflow.ti_deps.dep_context import DepContext, BACKFILL_QUEUED_DEPS
+from airflow.ti_deps.dep_context import BACKFILL_QUEUED_DEPS, DepContext
 from airflow.utils import timezone
 from airflow.utils.configuration import tmp_configuration_copy
 from airflow.utils.db import provide_session
-from airflow.jobs.base_job import BaseJob
 from airflow.utils.state import State
 
 

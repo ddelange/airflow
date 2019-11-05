@@ -20,10 +20,9 @@
 
 import os
 import signal
-from subprocess import Popen, STDOUT, PIPE
-from tempfile import gettempdir, NamedTemporaryFile
-
 from builtins import bytes
+from subprocess import PIPE, STDOUT, Popen
+from tempfile import NamedTemporaryFile, gettempdir
 
 from airflow.exceptions import AirflowException
 from airflow.models import BaseOperator

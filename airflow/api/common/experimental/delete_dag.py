@@ -21,10 +21,10 @@
 from sqlalchemy import or_
 
 from airflow import models
-from airflow.models import TaskFail, DagModel, SerializedDagModel
-from airflow.utils.db import provide_session
 from airflow.exceptions import DagNotFound
+from airflow.models import DagModel, SerializedDagModel, TaskFail
 from airflow.settings import STORE_SERIALIZED_DAGS
+from airflow.utils.db import provide_session
 from airflow.utils.log.logging_mixin import LoggingMixin
 
 

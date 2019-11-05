@@ -17,8 +17,7 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from __future__ import division
-from __future__ import unicode_literals
+from __future__ import division, unicode_literals
 
 import hashlib
 import imp
@@ -30,8 +29,8 @@ import zipfile
 from collections import namedtuple
 from datetime import datetime
 
-from croniter import CroniterBadCronError, CroniterBadDateError, CroniterNotAlphaError, croniter
 import six
+from croniter import CroniterBadCronError, CroniterBadDateError, CroniterNotAlphaError, croniter
 
 from airflow import settings
 from airflow.configuration import conf
@@ -41,7 +40,7 @@ from airflow.executors import get_default_executor
 from airflow.models.serialized_dag import SerializedDagModel
 from airflow.settings import Stats
 from airflow.utils import timezone
-from airflow.utils.dag_processing import list_py_file_paths, correct_maybe_zipped
+from airflow.utils.dag_processing import correct_maybe_zipped, list_py_file_paths
 from airflow.utils.db import provide_session
 from airflow.utils.helpers import pprinttable
 from airflow.utils.log.logging_mixin import LoggingMixin

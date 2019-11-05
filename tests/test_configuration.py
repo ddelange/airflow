@@ -17,8 +17,7 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import print_function, unicode_literals
 
 import contextlib
 import os
@@ -28,7 +27,7 @@ from collections import OrderedDict
 import six
 
 from airflow import configuration
-from airflow.configuration import conf, AirflowConfigParser, parameterized_config
+from airflow.configuration import AirflowConfigParser, conf, parameterized_config
 from tests.compat import mock
 
 if six.PY2:

@@ -15,14 +15,17 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from airflow.contrib.kubernetes.kubernetes_request_factory.\
-    kubernetes_request_factory import KubernetesRequestFactory
-from airflow.contrib.kubernetes.pod import Pod, Resources
-from airflow.contrib.kubernetes.secret import Secret
-from airflow.contrib.kubernetes.pod_runtime_info_env import PodRuntimeInfoEnv
-from parameterized import parameterized
-import unittest
 import copy
+import unittest
+
+from parameterized import parameterized
+
+from airflow.contrib.kubernetes.kubernetes_request_factory.kubernetes_request_factory import (
+    KubernetesRequestFactory,
+)
+from airflow.contrib.kubernetes.pod import Pod, Resources
+from airflow.contrib.kubernetes.pod_runtime_info_env import PodRuntimeInfoEnv
+from airflow.contrib.kubernetes.secret import Secret
 
 
 class TestKubernetesRequestFactory(unittest.TestCase):

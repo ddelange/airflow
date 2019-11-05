@@ -26,26 +26,14 @@ from parameterized import parameterized
 
 from airflow import AirflowException
 from airflow.contrib.hooks.gcp_transfer_hook import (
-    GCPTransferServiceHook,
-    TIME_TO_SLEEP_IN_SECONDS,
-    GcpTransferOperationStatus,
-    GcpTransferJobsStatus,
-    PROJECT_ID,
-    STATUS,
-    DESCRIPTION,
-    FILTER_PROJECT_ID,
-    FILTER_JOB_NAMES,
-    TRANSFER_JOBS,
-    OPERATIONS,
-    METADATA,
-    TRANSFER_JOB,
-    TRANSFER_JOB_FIELD_MASK,
-)
-from tests.contrib.utils.base_gcp_mock import (
-    mock_base_gcp_hook_no_default_project_id,
-    mock_base_gcp_hook_default_project_id,
+    DESCRIPTION, FILTER_JOB_NAMES, FILTER_PROJECT_ID, METADATA, OPERATIONS, PROJECT_ID, STATUS,
+    TIME_TO_SLEEP_IN_SECONDS, TRANSFER_JOB, TRANSFER_JOB_FIELD_MASK, TRANSFER_JOBS, GcpTransferJobsStatus,
+    GcpTransferOperationStatus, GCPTransferServiceHook,
 )
 from tests.compat import mock
+from tests.contrib.utils.base_gcp_mock import (
+    mock_base_gcp_hook_default_project_id, mock_base_gcp_hook_no_default_project_id,
+)
 
 NAME = "name"
 

@@ -19,9 +19,9 @@
 
 from __future__ import print_function
 
-import requests
 import time
 
+import requests
 from pydruid.db import connect
 
 from airflow.exceptions import AirflowException

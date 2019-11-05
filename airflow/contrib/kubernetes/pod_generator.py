@@ -15,10 +15,11 @@
 # specific language governing permissions and limitations
 # under the License.
 
+import uuid
+
 from airflow.contrib.kubernetes.pod import Pod, Port
 from airflow.contrib.kubernetes.volume import Volume
 from airflow.contrib.kubernetes.volume_mount import VolumeMount
-import uuid
 
 
 class PodGenerator:

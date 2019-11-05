@@ -23,10 +23,8 @@ import unittest
 from freezegun import freeze_time
 from mock import patch
 
-from airflow import AirflowException
+from airflow import AirflowException, models, settings
 from airflow.api.client.local_client import Client
-from airflow import models
-from airflow import settings
 from airflow.utils import timezone
 from airflow.utils.state import State
 from tests.test_utils.db import clear_db_pools

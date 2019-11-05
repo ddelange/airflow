@@ -16,17 +16,18 @@
 # under the License.
 #
 
-import uuid
+import random
 import re
 import string
-import random
-from urllib3 import HTTPResponse
+import uuid
 from datetime import datetime
 
 import six
+from urllib3 import HTTPResponse
 
 from tests.compat import mock
 from tests.test_utils.config import conf_vars
+
 try:
     from kubernetes.client.rest import ApiException
     from airflow.contrib.executors.kubernetes_executor import AirflowKubernetesScheduler

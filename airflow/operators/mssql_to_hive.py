@@ -19,9 +19,10 @@
 
 from builtins import chr
 from collections import OrderedDict
-import unicodecsv as csv
 from tempfile import NamedTemporaryFile
+
 import pymssql
+import unicodecsv as csv
 
 from airflow.hooks.hive_hooks import HiveCliHook
 from airflow.hooks.mssql_hook import MsSqlHook

@@ -25,18 +25,18 @@ import unittest
 from datetime import datetime
 from tempfile import NamedTemporaryFile, mkdtemp
 
-from mock import patch, ANY
+from mock import ANY, patch
 
+import airflow.example_dags
 from airflow import models
 from airflow.configuration import conf
+from airflow.models import DagBag, DagModel, TaskInstance as TI
 from airflow.utils.dag_processing import SimpleTaskInstance
-from airflow.models import DagModel, DagBag, TaskInstance as TI
 from airflow.utils.db import create_session
 from airflow.utils.state import State
 from airflow.utils.timezone import utc
-from tests.models import TEST_DAGS_FOLDER, DEFAULT_DATE
+from tests.models import DEFAULT_DATE, TEST_DAGS_FOLDER
 from tests.test_utils.config import conf_vars
-import airflow.example_dags
 
 
 class DagBagTest(unittest.TestCase):

@@ -22,9 +22,7 @@ import unittest
 from parameterized import parameterized
 
 from airflow import AirflowException
-
 from airflow.contrib.operators.gcp_text_to_speech_operator import GcpTextToSpeechSynthesizeOperator
-
 from tests.compat import mock
 
 PROJECT_ID = "project-id"

@@ -21,10 +21,9 @@ import os
 import subprocess
 from typing import Optional
 
-from airflow import settings, AirflowException
-from tests.contrib.utils.logging_command_executor import LoggingCommandExecutor
-
+from airflow import AirflowException, settings
 from airflow.models import Connection
+from tests.contrib.utils.logging_command_executor import LoggingCommandExecutor
 
 # Please keep these variables in alphabetical order.
 GCP_AI_KEY = 'gcp_ai.json'

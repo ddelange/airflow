@@ -19,7 +19,6 @@
 
 from google.cloud.language_v1 import LanguageServiceClient
 
-
 from airflow.contrib.hooks.gcp_api_base_hook import GoogleCloudBaseHook
 
 

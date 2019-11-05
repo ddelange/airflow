@@ -22,9 +22,9 @@ from flask_admin import BaseView, expose
 from flask_admin.base import MenuLink
 from flask_appbuilder import BaseView as AppBuilderBaseView
 
+from airflow.executors.base_executor import BaseExecutor
 # Importing base classes that we need to derive
 from airflow.hooks.base_hook import BaseHook
-from airflow.executors.base_executor import BaseExecutor
 from airflow.models.baseoperator import BaseOperator
 # This is the class you derive to create a plugin
 from airflow.plugins_manager import AirflowPlugin

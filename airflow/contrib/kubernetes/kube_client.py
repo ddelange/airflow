@@ -15,8 +15,9 @@
 # specific language governing permissions and limitations
 # under the License.
 """Client for kubernetes communication"""
-from airflow.configuration import conf
 from six import PY2
+
+from airflow.configuration import conf
 
 try:
     from kubernetes import config, client

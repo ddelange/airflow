@@ -17,15 +17,15 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-import six
 import unittest
 
+import six
+from mock import call, patch
+
 from airflow import AirflowException
+from airflow.contrib.hooks.spark_submit_hook import SparkSubmitHook
 from airflow.models import Connection
 from airflow.utils import db
-from mock import patch, call
-
-from airflow.contrib.hooks.spark_submit_hook import SparkSubmitHook
 
 
 class TestSparkSubmitHook(unittest.TestCase):

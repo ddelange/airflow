@@ -23,8 +23,9 @@ import unittest
 from google.auth.environment_vars import CREDENTIALS
 
 from airflow import AirflowException
-from airflow.contrib.operators.gcp_container_operator import GKEClusterCreateOperator, \
-    GKEClusterDeleteOperator, GKEPodOperator
+from airflow.contrib.operators.gcp_container_operator import (
+    GKEClusterCreateOperator, GKEClusterDeleteOperator, GKEPodOperator,
+)
 from airflow.contrib.operators.kubernetes_pod_operator import KubernetesPodOperator
 from tests.compat import mock
 

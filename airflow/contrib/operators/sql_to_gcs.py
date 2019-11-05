@@ -23,7 +23,6 @@ Base operator for SQL to GCS operators.
 import abc
 import json
 import sys
-
 from tempfile import NamedTemporaryFile
 
 import unicodecsv as csv

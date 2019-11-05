@@ -29,48 +29,44 @@ import traceback
 from collections import defaultdict
 from datetime import timedelta
 
-from six.moves.urllib.parse import quote
-
+import lazy_object_proxy
 import markdown
 import pendulum
 import sqlalchemy as sqla
-from flask import (
-    redirect, request, Markup, Response, render_template,
-    make_response, flash, jsonify, url_for)
+from flask import Markup, Response, flash, jsonify, make_response, redirect, render_template, request, url_for
 from flask._compat import PY2
 from flask_appbuilder import BaseView, ModelView, expose, has_access
 from flask_appbuilder.actions import action
 from flask_appbuilder.models.sqla.filters import BaseFilter
 from flask_babel import lazy_gettext
-import lazy_object_proxy
 from pygments import highlight, lexers
 from pygments.formatters import HtmlFormatter
-from sqlalchemy import or_, desc, and_, union_all
+from six.moves.urllib.parse import quote
+from sqlalchemy import and_, desc, or_, union_all
 from wtforms import SelectField, validators
 
 import airflow
-from airflow import models, jobs
-from airflow import settings, configuration
+from airflow import configuration, jobs, models, settings
+from airflow._vendor import nvd3
+from airflow.api.common.experimental.mark_tasks import (
+    set_dag_run_state_to_failed, set_dag_run_state_to_success,
+)
 from airflow.configuration import conf
-from airflow.api.common.experimental.mark_tasks import (set_dag_run_state_to_success,
-                                                        set_dag_run_state_to_failed)
-from airflow.models import Connection, DagModel, DagRun, errors, Log, SlaMiss, TaskFail, XCom
+from airflow.models import Connection, DagModel, DagRun, Log, SlaMiss, TaskFail, XCom, errors
 from airflow.settings import STORE_SERIALIZED_DAGS
-from airflow.ti_deps.dep_context import DepContext, SCHEDULER_QUEUED_DEPS
+from airflow.ti_deps.dep_context import SCHEDULER_QUEUED_DEPS, DepContext
 from airflow.utils import timezone
 from airflow.utils.dates import infer_time_unit, scale_time_units
 from airflow.utils.db import provide_session
 from airflow.utils.helpers import alchemy_to_dict, render_log_filename
 from airflow.utils.state import State
-from airflow._vendor import nvd3
 from airflow.www_rbac import utils as wwwutils
 from airflow.www_rbac.app import app, appbuilder
 from airflow.www_rbac.decorators import action_logging, gzipped, has_dag_access
-from airflow.www_rbac.forms import (DateTimeForm, DateTimeWithNumRunsForm,
-                                    DateTimeWithNumRunsWithDagRunsForm,
-                                    DagRunForm, ConnectionForm)
+from airflow.www_rbac.forms import (
+    ConnectionForm, DagRunForm, DateTimeForm, DateTimeWithNumRunsForm, DateTimeWithNumRunsWithDagRunsForm,
+)
 from airflow.www_rbac.widgets import AirflowModelListWidget
-
 
 PAGE_SIZE = conf.getint('webserver', 'page_size')
 if os.environ.get('SKIP_DAGS_PARSING') != 'True':

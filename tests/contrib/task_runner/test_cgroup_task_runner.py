@@ -16,8 +16,9 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-import mock
 import unittest
+
+import mock
 
 from airflow.contrib.task_runner.cgroup_task_runner import CgroupTaskRunner
 

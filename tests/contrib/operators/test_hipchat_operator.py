@@ -18,10 +18,10 @@
 # under the License.
 
 import unittest
+
 import requests
 
-from airflow.contrib.operators.hipchat_operator import \
-    HipChatAPISendRoomNotificationOperator
+from airflow.contrib.operators.hipchat_operator import HipChatAPISendRoomNotificationOperator
 from airflow.exceptions import AirflowException
 from tests.compat import mock
 

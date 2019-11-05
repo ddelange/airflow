@@ -23,21 +23,20 @@ import datetime
 import enum
 import json
 import logging
-import six
-from typing import Optional, TYPE_CHECKING, Union, Dict
+from typing import TYPE_CHECKING, Dict, Optional, Union
 
 import pendulum
+import six
 from dateutil import relativedelta
 
 import airflow
 from airflow.exceptions import AirflowException
-from airflow.models.dag import DAG
 from airflow.models.baseoperator import BaseOperator
 from airflow.models.connection import Connection
+from airflow.models.dag import DAG
 from airflow.serialization.enums import DagAttributeTypes as DAT, Encoding
 from airflow.utils.log.logging_mixin import LoggingMixin
 from airflow.www.utils import get_python_source
-
 
 LOG = LoggingMixin().log
 

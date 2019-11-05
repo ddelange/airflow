@@ -17,10 +17,7 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import absolute_import, division, print_function, unicode_literals
 
 import getpass
 from time import sleep
@@ -29,12 +26,10 @@ from sqlalchemy import Column, Index, Integer, String, and_, or_
 from sqlalchemy.exc import OperationalError
 from sqlalchemy.orm.session import make_transient
 
-from airflow.configuration import conf
 from airflow import executors, models
-from airflow.exceptions import (
-    AirflowException,
-)
-from airflow.models.base import Base, ID_LEN
+from airflow.configuration import conf
+from airflow.exceptions import AirflowException
+from airflow.models.base import ID_LEN, Base
 from airflow.settings import Stats
 from airflow.utils import helpers, timezone
 from airflow.utils.db import create_session, provide_session

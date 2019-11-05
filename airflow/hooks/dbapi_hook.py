@@ -17,17 +17,17 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from builtins import str
-from past.builtins import basestring
-from datetime import datetime
-from contextlib import closing
 import sys
+from builtins import str
+from contextlib import closing
+from datetime import datetime
 from typing import Optional
 
+from past.builtins import basestring
 from sqlalchemy import create_engine
 
-from airflow.hooks.base_hook import BaseHook
 from airflow.exceptions import AirflowException
+from airflow.hooks.base_hook import BaseHook
 
 
 class DbApiHook(BaseHook):

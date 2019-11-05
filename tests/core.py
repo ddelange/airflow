@@ -20,58 +20,52 @@
 from __future__ import print_function
 
 import json
-import unittest
-
-import mock
 import multiprocessing
 import os
 import re
 import signal
-import sqlalchemy
 import subprocess
 import tempfile
+import unittest
 import warnings
 from datetime import timedelta
-from dateutil.relativedelta import relativedelta
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from numpy.testing import assert_array_almost_equal
-from six.moves.urllib.parse import urlencode
 from time import sleep
 
+import mock
+import six
+import sqlalchemy
 from bs4 import BeautifulSoup
+from dateutil.relativedelta import relativedelta
+from jinja2 import UndefinedError
+from jinja2.exceptions import SecurityError
+from numpy.testing import assert_array_almost_equal
+from pendulum import utcnow
+from six.moves.urllib.parse import urlencode
 
+from airflow import DAG, exceptions, jobs, models, settings, utils
+from airflow.bin import cli
+from airflow.configuration import (
+    DEFAULT_CONFIG, AirflowConfigException, conf, parameterized_config, run_command,
+)
+from airflow.exceptions import AirflowException
 from airflow.executors import SequentialExecutor
-from airflow.models import DagModel, Variable, TaskInstance
-
-
-from airflow import jobs, models, DAG, utils, settings, exceptions
-from airflow.models import BaseOperator, Connection, TaskFail
+from airflow.hooks.base_hook import BaseHook
+from airflow.hooks.sqlite_hook import SqliteHook
+from airflow.models import BaseOperator, Connection, DagModel, TaskFail, TaskInstance, Variable
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.check_operator import CheckOperator, ValueCheckOperator
 from airflow.operators.dagrun_operator import TriggerDagRunOperator
-from airflow.operators.python_operator import PythonOperator
 from airflow.operators.dummy_operator import DummyOperator
-
-from airflow.hooks.base_hook import BaseHook
-from airflow.hooks.sqlite_hook import SqliteHook
-from airflow.bin import cli
-from airflow.www import app as application
+from airflow.operators.python_operator import PythonOperator
 from airflow.settings import Session
 from airflow.utils import timezone
-from airflow.utils.timezone import datetime
-from airflow.utils.state import State
 from airflow.utils.dates import days_ago, infer_time_unit, round_time, scale_time_units
-from airflow.exceptions import AirflowException
-from airflow.configuration import (
-    AirflowConfigException, run_command, conf, parameterized_config, DEFAULT_CONFIG
-)
-from jinja2.exceptions import SecurityError
-from jinja2 import UndefinedError
-from pendulum import utcnow
-import six
-
+from airflow.utils.state import State
+from airflow.utils.timezone import datetime
+from airflow.www import app as application
 from tests.test_utils.config import conf_vars
 
 NUM_EXAMPLE_DAGS = 19

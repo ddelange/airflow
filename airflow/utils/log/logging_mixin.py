@@ -17,21 +17,17 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import absolute_import, division, print_function, unicode_literals
 
-import re
 import logging
+import re
 import sys
 import warnings
-
-import six
-
 from builtins import object
 from contextlib import contextmanager
 from logging import Handler, StreamHandler
+
+import six
 
 # 7-bit C1 ANSI escape sequences
 ANSI_ESCAPE = re.compile(r'\x1B[@-_][0-?]*[ -/]*[@-~]')

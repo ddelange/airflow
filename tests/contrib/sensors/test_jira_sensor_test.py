@@ -20,8 +20,7 @@
 
 import unittest
 
-from mock import Mock
-from mock import patch
+from mock import Mock, patch
 
 from airflow import DAG
 from airflow.contrib.sensors.jira_sensor import JiraTicketSensor

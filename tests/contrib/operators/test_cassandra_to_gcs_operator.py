@@ -19,12 +19,11 @@
 from __future__ import unicode_literals
 
 import unittest
+
 import mock
 from mock import call
 
-from airflow.contrib.operators.cassandra_to_gcs import (
-    CassandraToGoogleCloudStorageOperator,
-)
+from airflow.contrib.operators.cassandra_to_gcs import CassandraToGoogleCloudStorageOperator
 
 TMP_FILE_NAME = "temp-file"
 

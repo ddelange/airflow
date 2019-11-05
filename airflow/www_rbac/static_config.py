@@ -18,8 +18,8 @@
 # under the License.
 from __future__ import print_function
 
-import os
 import json
+import os
 from typing import Dict
 
 from flask import url_for

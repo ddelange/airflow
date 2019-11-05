@@ -17,8 +17,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
-import mock
 import unittest
+
+import mock
 
 from airflow.contrib.operators.winrm_operator import WinRMOperator
 from airflow.exceptions import AirflowException

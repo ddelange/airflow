@@ -18,12 +18,13 @@
 # under the License.
 #
 import json
-from requests.exceptions import MissingSchema
 import unittest
 
+from requests.exceptions import MissingSchema
+
+from airflow.contrib.hooks.slack_webhook_hook import SlackWebhookHook
 from airflow.models import Connection
 from airflow.utils import db
-from airflow.contrib.hooks.slack_webhook_hook import SlackWebhookHook
 from tests.compat import mock
 
 

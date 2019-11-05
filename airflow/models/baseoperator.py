@@ -24,21 +24,18 @@ import functools
 import logging
 import sys
 import warnings
-
 from abc import ABCMeta, abstractmethod
 from datetime import datetime, timedelta
 from typing import Any, Callable, Dict, FrozenSet, Iterable, List, Optional, Set, Type
 
-
-from cached_property import cached_property
-
 import jinja2
 import six
+from cached_property import cached_property
 
 from airflow import settings
 from airflow.configuration import conf
 from airflow.exceptions import AirflowException
-from airflow.lineage import prepare_lineage, apply_lineage, DataSet
+from airflow.lineage import DataSet, apply_lineage, prepare_lineage
 from airflow.models.dag import DAG
 from airflow.models.pool import Pool
 from airflow.models.taskinstance import TaskInstance, clear_task_instances

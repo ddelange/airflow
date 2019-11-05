@@ -19,7 +19,7 @@
 from copy import deepcopy
 
 from cached_property import cached_property
-from google.cloud.vision_v1 import ProductSearchClient, ImageAnnotatorClient
+from google.cloud.vision_v1 import ImageAnnotatorClient, ProductSearchClient
 from google.protobuf.json_format import MessageToDict
 
 from airflow import AirflowException

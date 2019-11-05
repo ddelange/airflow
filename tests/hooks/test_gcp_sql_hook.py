@@ -18,12 +18,12 @@
 # under the License.
 #
 
-from tests.compat import mock
 import json
 import unittest
 
 from airflow.contrib.hooks.gcp_sql_hook import CloudSqlDatabaseHook
 from airflow.models.connection import Connection
+from tests.compat import mock
 
 
 class TestCloudSqlDatabaseHook(unittest.TestCase):

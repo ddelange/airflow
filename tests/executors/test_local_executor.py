@@ -18,10 +18,10 @@
 # under the License.
 
 import unittest
-from tests.compat import mock
 
 from airflow.executors.local_executor import LocalExecutor
 from airflow.utils.state import State
+from tests.compat import mock
 
 
 class LocalExecutorTest(unittest.TestCase):

@@ -20,8 +20,7 @@
 import unittest
 from datetime import datetime
 
-from airflow.contrib.operators.gcs_to_gcs import \
-    GoogleCloudStorageToGoogleCloudStorageOperator, WILDCARD
+from airflow.contrib.operators.gcs_to_gcs import WILDCARD, GoogleCloudStorageToGoogleCloudStorageOperator
 from airflow.exceptions import AirflowException
 from tests.compat import mock, patch
 

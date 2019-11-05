@@ -20,9 +20,9 @@
 import unittest
 
 from hdfs import HdfsError
-from mock import patch, call
+from mock import call, patch
 
-from airflow.hooks.webhdfs_hook import WebHDFSHook, AirflowWebHDFSHookException
+from airflow.hooks.webhdfs_hook import AirflowWebHDFSHookException, WebHDFSHook
 from airflow.models.connection import Connection
 
 

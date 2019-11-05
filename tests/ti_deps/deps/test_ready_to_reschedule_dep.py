@@ -19,6 +19,7 @@
 
 import unittest
 from datetime import timedelta
+
 from mock import Mock, patch
 
 from airflow.models import DAG, TaskInstance, TaskReschedule

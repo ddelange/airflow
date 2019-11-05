@@ -17,8 +17,8 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-import sys
 import os as _os
+import sys
 
 _sensors = {
     'base_sensor_operator': ['BaseSensorOperator'],

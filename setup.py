@@ -22,11 +22,11 @@ import imp
 import io
 import logging
 import os
-import sys
 import subprocess
+import sys
 import unittest
 
-from setuptools import setup, find_packages, Command
+from setuptools import Command, find_packages, setup
 
 logger = logging.getLogger(__name__)
 

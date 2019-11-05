@@ -19,27 +19,24 @@
 
 import unittest
 import warnings
-from tests.compat import MagicMock
 from datetime import datetime
 
 import six
 
 from airflow import models
 from airflow.contrib.operators.bigquery_get_data import BigQueryGetDataOperator
-from airflow.contrib.operators.bigquery_operator import \
-    BigQueryCreateExternalTableOperator, BigQueryCreateEmptyTableOperator, \
-    BigQueryDeleteDatasetOperator, BigQueryCreateEmptyDatasetOperator, \
-    BigQueryOperator, BigQueryConsoleLink, BigQueryGetDatasetOperator, \
-    BigQueryPatchDatasetOperator, BigQueryUpdateDatasetOperator
-from airflow.contrib.operators.bigquery_table_delete_operator import \
-    BigQueryTableDeleteOperator
-from airflow.contrib.operators.bigquery_to_bigquery import \
-    BigQueryToBigQueryOperator
+from airflow.contrib.operators.bigquery_operator import (
+    BigQueryConsoleLink, BigQueryCreateEmptyDatasetOperator, BigQueryCreateEmptyTableOperator,
+    BigQueryCreateExternalTableOperator, BigQueryDeleteDatasetOperator, BigQueryGetDatasetOperator,
+    BigQueryOperator, BigQueryPatchDatasetOperator, BigQueryUpdateDatasetOperator,
+)
+from airflow.contrib.operators.bigquery_table_delete_operator import BigQueryTableDeleteOperator
+from airflow.contrib.operators.bigquery_to_bigquery import BigQueryToBigQueryOperator
 from airflow.contrib.operators.bigquery_to_gcs import BigQueryToCloudStorageOperator
 from airflow.exceptions import AirflowException
 from airflow.models import DAG, TaskFail, TaskInstance
 from airflow.settings import Session
-from tests.compat import mock
+from tests.compat import MagicMock, mock
 
 TASK_ID = 'test-bq-create-table-operator'
 TEST_DATASET = 'test-dataset'

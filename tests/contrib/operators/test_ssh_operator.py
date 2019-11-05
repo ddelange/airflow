@@ -19,6 +19,7 @@
 
 import unittest
 from base64 import b64encode
+
 import six
 
 from airflow import models

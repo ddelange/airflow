@@ -24,9 +24,9 @@ except ImportError:
     from funcsigs import signature  # type: ignore
 from typing import cast
 
+from airflow.models import DAG
 from airflow.serialization.json_schema import load_dag_schema
 from airflow.serialization.serialization import Serialization
-from airflow.models import DAG
 
 
 class SerializedDAG(DAG, Serialization):

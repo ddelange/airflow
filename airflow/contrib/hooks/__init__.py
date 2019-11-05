@@ -23,8 +23,8 @@
 # directly: from airflow.contrib.hooks.hook_module import Hook
 
 
-import sys
 import os as _os
+import sys
 
 # ------------------------------------------------------------------------
 #

@@ -18,10 +18,10 @@
 # under the License.
 #
 
-import mock
 import tempfile
 import unittest
 
+import mock
 from botocore.exceptions import NoCredentialsError
 
 try:

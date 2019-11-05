@@ -26,9 +26,9 @@ from googleapiclient.errors import HttpError
 from mock import ANY, patch
 
 from airflow import DAG
-from airflow.contrib.operators.mlengine_operator import (MLEngineBatchPredictionOperator,
-                                                         MLEngineTrainingOperator,
-                                                         MLEngineVersionOperator)
+from airflow.contrib.operators.mlengine_operator import (
+    MLEngineBatchPredictionOperator, MLEngineTrainingOperator, MLEngineVersionOperator,
+)
 from airflow.exceptions import AirflowException
 
 DEFAULT_DATE = datetime.datetime(2017, 6, 6)

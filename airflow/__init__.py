@@ -24,23 +24,28 @@ implement their own login mechanisms by providing an `airflow_login` module
 in their PYTHONPATH. airflow_login should be based off the
 `airflow.www.login`
 """
+import sys
 from builtins import object
+from importlib import import_module
 from typing import Any
 
-from airflow import version
+from flask_admin import BaseView
+
+# flake8: noqa: F401
+from airflow import executors  # noqa: E402
+from airflow import hooks  # noqa: E402
+from airflow import macros  # noqa: E402
+from airflow import operators  # noqa: E402
+from airflow import sensors  # noqa: E402
+from airflow import settings, version
+from airflow.configuration import conf
+from airflow.exceptions import AirflowException
+from airflow.models import DAG
 from airflow.utils.log.logging_mixin import LoggingMixin
 
 __version__ = version.version
 
-import sys
 
-# flake8: noqa: F401
-from airflow import settings
-from airflow.configuration import conf
-from airflow.models import DAG
-from flask_admin import BaseView
-from importlib import import_module
-from airflow.exceptions import AirflowException
 
 settings.initialize()
 
@@ -86,11 +91,6 @@ class AirflowMacroPlugin(object):
         self.namespace = namespace
 
 
-from airflow import operators  # noqa: E402
-from airflow import sensors  # noqa: E402
-from airflow import hooks  # noqa: E402
-from airflow import executors  # noqa: E402
-from airflow import macros  # noqa: E402
 
 operators._integrate_plugins()
 sensors._integrate_plugins()  # noqa: E402

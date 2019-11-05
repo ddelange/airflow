@@ -17,20 +17,19 @@
 # specific language governing permissions and limitations
 # under the License.
 import io
-import six
-import tempfile
 import os
+import tempfile
+from datetime import datetime
+
+import dateutil
+import six
+from google.cloud import exceptions, storage
 
 import airflow.contrib.hooks.gcs_hook as gcs_hook
-from datetime import datetime
-import dateutil
-
-
 from airflow.exceptions import AirflowException
 from tests.compat import mock
 from tests.contrib.utils.base_gcp_mock import mock_base_gcp_hook_default_project_id
-from google.cloud import storage
-from google.cloud import exceptions
+
 if six.PY2:
     # Need `assertWarns` back-ported from unittest2
     import unittest2 as unittest

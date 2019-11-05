@@ -25,9 +25,8 @@ the new module will override this one.
 """
 
 import flask_login
-from flask_login import login_required, current_user, logout_user  # noqa: F401
-
-from flask import url_for, redirect
+from flask import redirect, url_for
+from flask_login import current_user, login_required, logout_user  # noqa: F401
 
 from airflow import settings  # noqa: F401
 from airflow import models

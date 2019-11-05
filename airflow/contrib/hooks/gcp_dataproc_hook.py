@@ -23,9 +23,9 @@ import uuid
 from googleapiclient.discovery import build
 from zope.deprecation import deprecation
 
-from airflow.version import version
 from airflow.contrib.hooks.gcp_api_base_hook import GoogleCloudBaseHook
 from airflow.utils.log.logging_mixin import LoggingMixin
+from airflow.version import version
 
 
 class _DataProcJob(LoggingMixin):

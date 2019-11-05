@@ -17,9 +17,7 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-from flask import (
-    url_for, Blueprint, redirect,
-)
+from flask import Blueprint, redirect, url_for
 
 from airflow import jobs
 from airflow.www import utils as wwwutils

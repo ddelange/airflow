@@ -18,8 +18,8 @@
 # under the License.
 
 import json
-from io import StringIO
 import unittest
+from io import StringIO
 
 import paramiko
 

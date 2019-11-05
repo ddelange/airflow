@@ -19,9 +19,9 @@
 #
 
 import json
-import mock
 import unittest
 
+import mock
 import MySQLdb.cursors
 
 from airflow.hooks.mysql_hook import MySqlHook

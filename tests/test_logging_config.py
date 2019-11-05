@@ -17,14 +17,14 @@
 # specific language governing permissions and limitations
 # under the License.
 import os
-import six
 import sys
 import tempfile
+
+import six
 
 from airflow.configuration import conf, mkdir_p
 from tests.compat import patch
 from tests.test_utils.config import conf_vars
-
 
 if six.PY2:
     # Need `assertWarns` back-ported from unittest2

@@ -24,18 +24,18 @@ data from Cassandra to Google cloud storage in JSON format.
 from __future__ import unicode_literals
 
 import json
-from builtins import str
 from base64 import b64encode
+from builtins import str
 from datetime import datetime
 from decimal import Decimal
-from six import text_type, binary_type, PY3
 from tempfile import NamedTemporaryFile
 from uuid import UUID
 
-from cassandra.util import Date, Time, SortedSet, OrderedMapSerializedKey
+from cassandra.util import Date, OrderedMapSerializedKey, SortedSet, Time
+from six import PY3, binary_type, text_type
 
-from airflow.contrib.hooks.gcs_hook import GoogleCloudStorageHook
 from airflow.contrib.hooks.cassandra_hook import CassandraHook
+from airflow.contrib.hooks.gcs_hook import GoogleCloudStorageHook
 from airflow.exceptions import AirflowException
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults

@@ -20,13 +20,11 @@
 
 import unittest
 
-from airflow.contrib.operators.dataflow_operator import \
-    DataFlowPythonOperator, DataFlowJavaOperator, \
-    DataflowTemplateOperator, GoogleCloudBucketHelper
-
+from airflow.contrib.operators.dataflow_operator import (
+    DataFlowJavaOperator, DataFlowPythonOperator, DataflowTemplateOperator, GoogleCloudBucketHelper,
+)
 from airflow.version import version
 from tests.compat import mock
-
 
 TASK_ID = 'test-dataflow-operator'
 JOB_NAME = 'test-dataflow-pipeline'

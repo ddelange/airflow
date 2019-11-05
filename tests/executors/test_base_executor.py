@@ -18,12 +18,11 @@
 # under the License.
 
 import unittest
-from tests.compat import mock
+from datetime import datetime
 
 from airflow.executors.base_executor import BaseExecutor
 from airflow.utils.state import State
-
-from datetime import datetime
+from tests.compat import mock
 
 
 class BaseExecutorTest(unittest.TestCase):

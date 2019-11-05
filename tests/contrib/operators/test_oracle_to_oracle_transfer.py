@@ -18,8 +18,8 @@
 # under the License.
 
 import unittest
-from airflow.contrib.operators.oracle_to_oracle_transfer \
-    import OracleToOracleTransfer
+
+from airflow.contrib.operators.oracle_to_oracle_transfer import OracleToOracleTransfer
 from tests.compat import MagicMock
 
 

@@ -18,9 +18,9 @@
 # under the License.
 
 import datetime
+import unittest
 
 import mock
-import unittest
 
 from airflow import DAG
 from airflow.contrib.operators.vertica_to_mysql import VerticaToMySqlTransfer

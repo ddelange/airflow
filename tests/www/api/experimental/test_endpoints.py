@@ -17,9 +17,10 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from datetime import timedelta
 import json
 import unittest
+from datetime import timedelta
+
 from six.moves.urllib.parse import quote_plus
 
 from airflow.api.common.experimental.trigger_dag import trigger_dag

@@ -17,11 +17,9 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+from __future__ import absolute_import, division, print_function, unicode_literals
 
+import enum
 import logging
 import multiprocessing
 import os
@@ -33,12 +31,11 @@ import zipfile
 from abc import ABCMeta, abstractmethod
 from datetime import datetime, timedelta
 from importlib import import_module
-import enum
-from typing import Optional, NamedTuple, Iterable
+from typing import Iterable, NamedTuple, Optional
 
 import psutil
-from setproctitle import setproctitle
 import six
+from setproctitle import setproctitle
 from six.moves import reload_module
 from sqlalchemy import or_
 from tabulate import tabulate
@@ -48,12 +45,11 @@ import airflow.models
 from airflow.configuration import conf
 from airflow.dag.base_dag import BaseDag, BaseDagBag
 from airflow.exceptions import AirflowException
-from airflow.settings import Stats
 from airflow.models import errors
-from airflow.settings import STORE_SERIALIZED_DAGS
+from airflow.settings import STORE_SERIALIZED_DAGS, Stats
 from airflow.utils import timezone
-from airflow.utils.helpers import reap_process_group
 from airflow.utils.db import provide_session
+from airflow.utils.helpers import reap_process_group
 from airflow.utils.log.logging_mixin import LoggingMixin
 from airflow.utils.state import State
 

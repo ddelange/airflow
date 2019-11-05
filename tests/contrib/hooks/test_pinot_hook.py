@@ -18,8 +18,9 @@
 # under the License.
 #
 
-import mock
 import unittest
+
+import mock
 
 from airflow.contrib.hooks.pinot_hook import PinotDbApiHook
 

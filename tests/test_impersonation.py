@@ -24,13 +24,13 @@ import os
 import subprocess
 import sys
 import unittest
-from tests.compat import mock
 from copy import deepcopy
 
 from airflow import jobs, models
 from airflow.utils.db import add_default_pool_if_not_exists
 from airflow.utils.state import State
 from airflow.utils.timezone import datetime
+from tests.compat import mock
 
 DEV_NULL = '/dev/null'
 TEST_DAG_FOLDER = os.path.join(

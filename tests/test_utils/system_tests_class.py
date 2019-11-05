@@ -17,11 +17,6 @@
 # specific language governing permissions and limitations
 # under the License.
 import os
-try:
-    from contextdecorator import ContextDecorator
-except ImportError:
-    from contextlib import ContextDecorator
-
 from shutil import move
 from tempfile import mkdtemp
 from unittest import TestCase, skip
@@ -30,6 +25,13 @@ from airflow import AirflowException, models, settings
 from airflow.configuration import AIRFLOW_HOME, AirflowConfigParser, get_airflow_config
 from airflow.utils import db
 from airflow.utils.log.logging_mixin import LoggingMixin
+
+try:
+    from contextdecorator import ContextDecorator
+except ImportError:
+    from contextlib import ContextDecorator
+
+
 
 DEFAULT_DAG_FOLDER = "example_dags"
 

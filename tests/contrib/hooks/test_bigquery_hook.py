@@ -22,13 +22,14 @@ import unittest
 import warnings
 from typing import List
 
-from google.auth.exceptions import GoogleAuthError
 import mock
+from google.auth.exceptions import GoogleAuthError
 from googleapiclient.errors import HttpError
 
 from airflow.contrib.hooks import bigquery_hook as hook
-from airflow.contrib.hooks.bigquery_hook import _cleanse_time_partitioning, \
-    _validate_value, _api_resource_configs_duplication_check
+from airflow.contrib.hooks.bigquery_hook import (
+    _api_resource_configs_duplication_check, _cleanse_time_partitioning, _validate_value,
+)
 
 bq_available = True
 

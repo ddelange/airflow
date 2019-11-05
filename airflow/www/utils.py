@@ -18,34 +18,37 @@
 # under the License.
 #
 # flake8: noqa: E402
-import inspect
-from future import standard_library
-standard_library.install_aliases()  # noqa: E402
-from builtins import str, object
-
-from io import BytesIO as IO
 import functools
 import gzip
+import inspect
 import io
 import json
 import os
 import re
 import time
-import wtforms
-from wtforms.compat import text_type
 import zipfile
+from builtins import object, str
+from io import BytesIO as IO
 
-from flask import after_this_request, request, Markup, Response
-from flask_admin.model import filters
 import flask_admin.contrib.sqla.filters as sqlafilters
+import wtforms
+from flask import Markup, Response, after_this_request, request
+from flask_admin.model import filters
 from flask_login import current_user
+from future import standard_library
 from six.moves.urllib.parse import urlencode
+from wtforms.compat import text_type
 
 from airflow import models, settings
 from airflow.configuration import conf
-from airflow.utils.db import create_session
 from airflow.utils import timezone
+from airflow.utils.db import create_session
 from airflow.utils.json import AirflowJsonEncoder
+
+standard_library.install_aliases()  # noqa: E402
+
+
+
 
 try:
     # cgi.escape has been deprecated since 3.3 and removed in 3.8

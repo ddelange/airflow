@@ -34,9 +34,9 @@ import os
 
 import airflow
 from airflow import models
-from airflow.contrib.operators.gcs_acl_operator import \
-    GoogleCloudStorageBucketCreateAclEntryOperator, \
-    GoogleCloudStorageObjectCreateAclEntryOperator
+from airflow.contrib.operators.gcs_acl_operator import (
+    GoogleCloudStorageBucketCreateAclEntryOperator, GoogleCloudStorageObjectCreateAclEntryOperator,
+)
 
 # [START howto_operator_gcs_acl_args_common]
 GCS_ACL_BUCKET = os.environ.get('GCS_ACL_BUCKET', 'example-bucket')

@@ -17,8 +17,9 @@
 # specific language governing permissions and limitations
 # under the License.
 
-import sys
 import os
+import sys
+
 from airflow.models import BaseOperator  # noqa: F401
 
 # ------------------------------------------------------------------------

@@ -17,22 +17,22 @@
 # specific language governing permissions and limitations
 # under the License.
 #
-import json
 import functools
+import json
 import logging
 import os
 import tempfile
-import httplib2
 
 import google.auth
-from google.auth.environment_vars import CREDENTIALS
-
-import google_auth_httplib2
 import google.oauth2.service_account
-from google.api_core.exceptions import GoogleAPICallError, AlreadyExists, RetryError, Forbidden, \
-    ResourceExhausted
-from googleapiclient.errors import HttpError
+import google_auth_httplib2
+import httplib2
 import tenacity
+from google.api_core.exceptions import (
+    AlreadyExists, Forbidden, GoogleAPICallError, ResourceExhausted, RetryError,
+)
+from google.auth.environment_vars import CREDENTIALS
+from googleapiclient.errors import HttpError
 
 from airflow import LoggingMixin
 from airflow.exceptions import AirflowException

@@ -18,6 +18,7 @@
 # under the License.
 """Authentication backend that denies all requests"""
 from functools import wraps
+
 from flask import Response
 
 CLIENT_AUTH = None

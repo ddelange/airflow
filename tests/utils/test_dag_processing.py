@@ -17,13 +17,13 @@
 # specific language governing permissions and limitations
 # under the License.
 
-from datetime import (datetime, timedelta)
 import os
 import sys
 import tempfile
 import unittest
-import mock
+from datetime import datetime, timedelta
 
+import mock
 from mock import MagicMock, PropertyMock
 
 from airflow.configuration import conf, mkdir_p

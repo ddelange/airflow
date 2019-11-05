@@ -25,7 +25,7 @@ import sys
 import types
 from builtins import str
 from textwrap import dedent
-from typing import Optional, Iterable, Dict, Callable
+from typing import Callable, Dict, Iterable, Optional
 
 import dill
 

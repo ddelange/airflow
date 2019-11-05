@@ -18,17 +18,17 @@
 # under the License.
 
 import unittest
+from copy import deepcopy
 
 from googleapiclient.errors import HttpError
 from parameterized import parameterized
 
-from airflow.contrib.operators.gcp_function_operator import \
-    GcfFunctionDeployOperator, GcfFunctionDeleteOperator, FUNCTION_NAME_PATTERN
 from airflow import AirflowException
+from airflow.contrib.operators.gcp_function_operator import (
+    FUNCTION_NAME_PATTERN, GcfFunctionDeleteOperator, GcfFunctionDeployOperator,
+)
 from airflow.version import version
 from tests.compat import mock
-
-from copy import deepcopy
 
 EMPTY_CONTENT = ''.encode('utf8')
 MOCK_RESP_404 = type('', (object,), {"status": 404})()

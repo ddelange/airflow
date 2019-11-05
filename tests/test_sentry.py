@@ -19,17 +19,16 @@
 
 import datetime
 import unittest
-from tests.compat import Mock, MagicMock
-from freezegun import freeze_time
 
+from freezegun import freeze_time
 from sentry_sdk import configure_scope
 
 from airflow.models import TaskInstance
-from airflow.settings import Session
 from airflow.sentry import ConfiguredSentry
+from airflow.settings import Session
 from airflow.utils import timezone
 from airflow.utils.state import State
-
+from tests.compat import MagicMock, Mock
 
 EXECUTION_DATE = timezone.utcnow()
 DAG_ID = "test_dag"

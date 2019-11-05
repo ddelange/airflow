@@ -28,7 +28,7 @@ import sys
 import traceback
 import warnings
 from collections import OrderedDict, defaultdict
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta
 from typing import TYPE_CHECKING, Callable, Dict, FrozenSet, Iterable, List, Optional, Type, Union
 
 import jinja2
@@ -42,22 +42,22 @@ from sqlalchemy import Boolean, Column, Index, Integer, String, Text, func, or_
 from airflow import settings, utils
 from airflow.configuration import conf
 from airflow.dag.base_dag import BaseDag
-from airflow.exceptions import AirflowException, AirflowDagCycleException, DagNotFound
+from airflow.exceptions import AirflowDagCycleException, AirflowException, DagNotFound
 from airflow.executors import LocalExecutor, get_default_executor
-from airflow.models.base import Base, ID_LEN
+from airflow.models.base import ID_LEN, Base
 from airflow.models.dagbag import DagBag
 from airflow.models.dagpickle import DagPickle
 from airflow.models.dagrun import DagRun
-from airflow.models.taskinstance import TaskInstance, clear_task_instances
 from airflow.models.serialized_dag import SerializedDagModel
-from airflow.settings import STORE_SERIALIZED_DAGS, MIN_SERIALIZED_DAG_UPDATE_INTERVAL
+from airflow.models.taskinstance import TaskInstance, clear_task_instances
+from airflow.settings import MIN_SERIALIZED_DAG_UPDATE_INTERVAL, STORE_SERIALIZED_DAGS
 from airflow.utils import timezone
 from airflow.utils.dag_processing import correct_maybe_zipped
 from airflow.utils.dates import cron_presets, date_range as utils_date_range
 from airflow.utils.db import provide_session
 from airflow.utils.helpers import validate_key
 from airflow.utils.log.logging_mixin import LoggingMixin
-from airflow.utils.sqlalchemy import UtcDateTime, Interval
+from airflow.utils.sqlalchemy import Interval, UtcDateTime
 from airflow.utils.state import State
 
 if TYPE_CHECKING:

@@ -23,11 +23,12 @@ import unittest
 from parameterized import parameterized
 
 from airflow import AirflowException
-from airflow.contrib.operators.gcp_sql_operator import CloudSqlInstanceCreateOperator, \
-    CloudSqlInstancePatchOperator, CloudSqlInstanceDeleteOperator, \
-    CloudSqlInstanceDatabaseCreateOperator, CloudSqlInstanceDatabasePatchOperator, \
-    CloudSqlInstanceExportOperator, CloudSqlInstanceImportOperator, \
-    CloudSqlInstanceDatabaseDeleteOperator, CloudSqlQueryOperator
+from airflow.contrib.operators.gcp_sql_operator import (
+    CloudSqlInstanceCreateOperator, CloudSqlInstanceDatabaseCreateOperator,
+    CloudSqlInstanceDatabaseDeleteOperator, CloudSqlInstanceDatabasePatchOperator,
+    CloudSqlInstanceDeleteOperator, CloudSqlInstanceExportOperator, CloudSqlInstanceImportOperator,
+    CloudSqlInstancePatchOperator, CloudSqlQueryOperator,
+)
 from airflow.models import Connection
 from tests.compat import mock
 
